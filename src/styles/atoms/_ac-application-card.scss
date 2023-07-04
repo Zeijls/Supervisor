@@ -1,0 +1,54 @@
+.ac-application-card {
+  background-color: $color-white;
+  margin: 2rem 0;
+  border-radius: 5px;
+
+  &__body {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    position: relative;
+  }
+
+  &__application-block {
+    padding: 1rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-column-gap: 2rem;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    color: $color-omega;
+    @include font-weight-medium;
+  }
+
+  &__paragraph {
+    font-size: 1.5rem;
+    @include font-weight-light;
+    color: $color-omega;
+  }
+
+  &__buttonblock {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  &__circle {
+    border-radius: 50%;
+    width: 3rem;
+    background-color: $color-alpha;
+    color: $color-white;
+    align-items: center;
+    margin: 0 1rem;
+  }
+
+  &__icon.ac-icon {
+    @include font-size(2rem);
+  }
+}

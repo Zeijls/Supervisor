@@ -1,0 +1,21 @@
+.ac-contract-new {
+  width: 90%;
+  margin: auto;
+
+  &__add {
+    display: grid;
+    grid-template-columns: 2fr 6fr;
+    column-gap: 3rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__icon.ac-icon {
+    @include font-size(2rem);
+    margin-right: 1rem;
+  }
+}

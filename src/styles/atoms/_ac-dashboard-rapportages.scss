@@ -1,0 +1,25 @@
+.ac-dashboard-rapportages {
+  margin-bottom: 10vh;
+  &__header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5rem 0 2rem;
+  }
+
+  &__title {
+    color: $color-black;
+    font-size: 1.8rem;
+    margin: 0;
+    @include font-weight-medium;
+    padding-top: 5rem;
+  }
+
+  &__link {
+    color: $color-alpha;
+    border: none;
+    font-size: 1.5rem;
+    text-decoration: underline;
+  }
+}

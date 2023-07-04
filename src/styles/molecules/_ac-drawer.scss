@@ -1,0 +1,133 @@
+.ac-drawer {
+	position: relative;
+	width: 100vw;
+	height: auto;
+	margin: 0 0 2.4rem;
+	padding: 3rem 2.4rem;
+	@include box-shadow-depth(2);
+
+	@include gradient-diagonal($color-alpha-light, $color-alpha-medium);
+
+	border-radius: 0 0 2.8rem 2.8rem;
+	box-sizing: border-box;
+
+	transition: box-shadow 0ms, opacity 0ms, height $time * 2;
+
+	&--flat {
+		border-radius: 0;
+	}
+
+	[rel='pop'] {
+		> * {
+			opacity: 1;
+			transition: opacity $time, transform ($time * 1.5) $fancy;
+			transform: translateY(0);
+		}
+
+		#ac-drawer-placeholder & {
+			> * {
+				opacity: 0;
+				transform: translateY(-4rem);
+				transition: opacity $time, transform $time $in-out;
+			}
+
+			&.ac-action-progress {
+				> * {
+					transform: translateY(0);
+				}
+
+				.ac-action-progress__knob {
+					transform: scale(0);
+				}
+			}
+		}
+
+		&.ac-drawer--hidden {
+			> * {
+				opacity: 0;
+				transform: translateY(-4rem);
+				transition: opacity $time, transform $time $in-out;
+			}
+
+			&.ac-action-progress {
+				> * {
+					transform: translateY(0);
+				}
+
+				.ac-action-progress__knob {
+					transform: scale(0);
+				}
+			}
+		}
+	}
+
+	&--sticky {
+		@include box-shadow-depth(0);
+		transition: box-shadow 100ms, opacity 100ms, height $time * 2;
+
+		[rel='pop'] {
+			> * {
+				opacity: 0;
+				transform: translateY(-4rem);
+				transition: opacity $time, transform $time $in-out;
+			}
+
+			&.ac-action-progress {
+				> * {
+					transform: translateY(0);
+				}
+
+				.ac-action-progress__knob {
+					transform: scale(0);
+				}
+			}
+		}
+
+		&[id='ac-drawer-placeholder'] {
+			[rel='pop'] {
+				> * {
+					opacity: 1;
+					transform: translateY(0);
+					transition: opacity $time, transform $time $in-out;
+				}
+
+				&.ac-action-progress {
+					> * {
+						transform: translateY(0);
+					}
+
+					.ac-action-progress__knob {
+						transform: scale(1);
+					}
+				}
+			}
+		}
+	}
+
+	&[id='ac-drawer-placeholder'] {
+		z-index: -1;
+		opacity: 0;
+		position: fixed;
+		height: 9rem;
+		top: calc((100% - 9rem) * -1);
+		right: 0;
+		bottom: auto;
+		left: 0;
+		margin: 0;
+		@include box-shadow-depth(0);
+		transition: box-shadow 0ms, opacity 200ms, z-index 0s 200ms;
+
+		transform: translateZ(0);
+		-moz-transform: translatez(0);
+		-ms-transform: translatez(0);
+		-o-transform: translatez(0);
+		-webkit-transform: translateZ(0);
+
+		&.ac-drawer--sticky {
+			z-index: 9000;
+			opacity: 1;
+			@include box-shadow-depth(2);
+			transition: box-shadow 0ms, opacity 0s, z-index 0s;
+		}
+	}
+}

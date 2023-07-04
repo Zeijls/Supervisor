@@ -1,0 +1,50 @@
+.ac-card-report {
+  &__block {
+    background-color: $color-white;
+    padding: 2rem 0;
+    margin: 1rem 0;
+    border-radius: 5px;
+  }
+
+  &__block-header {
+    background-color: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0 2rem;
+    border-radius: 5px;
+  }
+
+  &__item {
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 1fr 2fr;
+    padding: 0 2rem;
+    width: 80%;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-top: 5rem;
+  }
+
+  &__label {
+    text-align: left;
+    font-size: 1.5rem;
+    color: $color-omega;
+    margin: 0;
+    // margin: 0 0 0 3rem;
+  }
+
+  &__paragraph {
+    text-align: left;
+    font-size: 1.5rem;
+    color: $color-delta;
+    // margin: 0 0 0 3rem;
+  }
+}

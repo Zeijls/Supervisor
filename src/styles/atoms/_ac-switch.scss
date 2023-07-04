@@ -1,0 +1,140 @@
+.ac-switch {
+	display: inline-flex;
+	align-items: center;
+	justify-content: flex-start;
+	position: relative;
+	width: auto;
+	height: 4rem;
+	margin: 0;
+	// overflow: hidden;
+
+	@include disable-appearance;
+	@include prevent-highlight;
+
+	&__slot {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		position: relative;
+		height: 100%;
+		padding: 0.4rem;
+		background: $color-dusty;
+		border-radius: 4rem;
+		box-sizing: border-box;
+		box-shadow: inset 0 1px 3px 0 rgba($color-black, 0.3);
+
+		@include disable-appearance;
+		@include prevent-highlight;
+	}
+
+	&__tracker {
+		z-index: +5;
+		display: block;
+		position: absolute;
+		width: auto;
+		height: 3.2rem;
+		top: 0.4rem;
+		right: 100%;
+		left: 0;
+		background: $color-white;
+		border-radius: 1.6rem;
+		box-sizing: border-box;
+		@include box-shadow-depth(2);
+
+		text-align: center;
+
+		@include disable-appearance;
+		@include prevent-highlight;
+
+		transform: translate3d(0, 0, 0);
+		transition: right ($time * 1.25) $swift,
+			left ($time * 1.25) ($time * 0.3) $swift;
+
+		&--move-left {
+			transition: right ($time * 1.25) ($time * 0.3) $swift,
+				left ($time * 1.25) $swift;
+		}
+
+		&--move-right {
+			transition: right ($time * 1.25) $swift,
+				left ($time * 1.25) ($time * 0.3) $swift;
+		}
+	}
+
+	&__option {
+		z-index: +10;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		height: 100%;
+		margin: 0 auto;
+		padding: 0 1.2rem;
+		border-radius: 4rem;
+		cursor: pointer;
+		overflow: hidden;
+
+		@include disable-appearance;
+		@include prevent-highlight;
+
+		transition: color ($time * 1.25) $swift, z-index 0s ($time * 1.25);
+
+		&--disabled {
+			cursor: not-allowed;
+			pointer-events: none;
+		}
+
+		&--selected {
+			z-index: +10;
+			transition: color ($time * 1.25) $swift, z-index 0s;
+			@include disable-appearance;
+			@include prevent-highlight;
+		}
+	}
+
+	&__input {
+		position: absolute;
+		left: -999999rem;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	&__label {
+		z-index: +15;
+		display: inline-flex;
+		position: relative;
+
+		@include font-regular();
+		@include font-size(1.4rem);
+		font-weight: normal;
+		line-height: 1;
+		color: $color-omega;
+
+		@include disable-appearance;
+		@include prevent-highlight;
+
+		transition: opacity $time, font-weight ($time * 1.5);
+
+		.ac-switch__option--selected & {
+			opacity: 1;
+			font-weight: 600;
+			color: $color-omega;
+			pointer-events: none;
+
+			@media not all and (min-resolution: 0.001dpcm) {
+				@supports (-webkit-appearance: none) {
+					letter-spacing: -1px;
+				}
+			}
+
+			@include disable-appearance;
+			@include prevent-highlight;
+		}
+
+		.ac-switch__option--disabled[disabled] & {
+			opacity: 1;
+			color: rgba($color-pitch, 0.25);
+			pointer-events: none;
+		}
+	}
+}

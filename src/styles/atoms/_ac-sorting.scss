@@ -1,0 +1,43 @@
+.ac-clients,
+.ac-sorting {
+  // width: 90%;
+  // margin: auto;
+
+  &__sort {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 0 1rem 0;
+  }
+
+  &__searchbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2rem;
+
+    &__title {
+      @include font-size(2rem);
+      color: $color-delta;
+      margin-left: 2rem;
+    }
+  }
+
+  &__searchfield {
+    margin: 1rem 0;
+  }
+
+  &__inputfield {
+    padding: 1.5rem 2rem;
+    border-radius: 5px;
+    border: $color-supervisor-dark-grey;
+    width: 35rem;
+  }
+
+  &__inputfield:hover {
+    @include box-shadow-depth(1);
+  }
+
+  &__icon {
+  }
+}

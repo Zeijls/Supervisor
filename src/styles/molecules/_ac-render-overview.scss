@@ -1,0 +1,72 @@
+.ac-render-overview {
+  width: 100%;
+  background-color: #f2f2f2;
+
+  &__list {
+    padding: 0;
+    text-align: left;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    color: $color-supervisor-dark-grey;
+  }
+
+  &__link {
+    background: none;
+    text-decoration: none;
+    color: $color-supervisor-dark-grey;
+    width: 100%;
+    border: none;
+    padding: 0;
+  }
+
+  &__list-item {
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    position: relative;
+    background-color: $color-white;
+  }
+
+  &__list-item:hover {
+    @include box-shadow-depth(1);
+  }
+
+  &__paragraph {
+    margin: 2rem;
+    text-align: left;
+    @include font-weight-light;
+    @include font-size(1.3rem);
+    color: $color-omega;
+    font-size: 1.4rem;
+
+    &__title {
+      @include font-weight-semibold;
+      margin: 0;
+      @include font-size(1.5rem);
+    }
+
+    &__subtitle {
+      @include font-weight-light;
+    }
+  }
+
+  &__span {
+    background-color: $color-black;
+    border-radius: 60%;
+    padding: 1rem;
+    color: $color-white;
+    margin-left: 1rem;
+  }
+
+  &__share.ac-icon {
+    @include font-size(2.5rem);
+    color: $color-delta;
+    margin-right: 1rem;
+  }
+}

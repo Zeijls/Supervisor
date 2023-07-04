@@ -1,0 +1,29 @@
+.ac-new-form-info-block {
+  margin: 3rem 3rem 5rem;
+  position: relative;
+  // padding: 3rem 1rem;
+
+  &__infoblock {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+    background-color: $color-white;
+  }
+
+  &__item {
+    display: grid;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    @include font-weight-medium;
+    color: $color-omega;
+    margin: 0.5rem 4rem 0.5rem 0;
+  }
+
+  &__paragraph {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    @include font-weight-light;
+    color: $color-omega;
+  }
+}

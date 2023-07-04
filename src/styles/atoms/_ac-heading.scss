@@ -1,0 +1,94 @@
+.ac-heading {
+  display: block;
+  position: relative;
+  margin: 0 0 2.5rem;
+
+  @include font-heavy;
+  font-weight: unset;
+  line-height: 1;
+  cursor: default;
+
+  &--h1 {
+    margin: 0 0 2.5rem 0;
+
+    @include font-heavy;
+    @include font-size(4rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    line-height: 1;
+    color: $color-pitch;
+  }
+
+  &--h2 {
+    margin: 0;
+    @include font-heavy;
+    @include font-size(2rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: $color-pitch;
+  }
+
+  &--h3 {
+    margin: 0 0 1.5rem;
+
+    @include font-heavy;
+    @include font-size(1.8rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: $color-pitch;
+  }
+
+  &--h4 {
+    margin: 0 0 0.5rem;
+
+    @include font-heavy;
+    @include font-size(1.6rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: $color-pitch;
+
+    &.h-text--tt-none {
+      font-weight: unset;
+    }
+  }
+
+  &--h5 {
+    margin: 0 0 0.8rem;
+
+    @include font-heavy;
+    @include font-size(1.4rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: $color-pitch;
+  }
+
+  &--h6 {
+    margin: 3rem 0 1.6rem;
+
+    @include font-body;
+    @include font-size(1.6rem);
+    font-weight: unset;
+    line-height: 1.35;
+    color: $color-pitch;
+  }
+
+  &--alpha {
+    color: $color-alpha;
+  }
+
+  &--omega {
+    color: $color-omega;
+  }
+
+  &--white {
+    color: $color-white;
+  }
+
+  &--pitch {
+    color: $color-pitch;
+  }
+}

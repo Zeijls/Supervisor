@@ -1,0 +1,57 @@
+.ac-bottom-drawer {
+	z-index: 9000;
+	display: flex;
+	position: fixed;
+	width: 100vw;
+	height: auto;
+	top: auto;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 2.4rem;
+	background: $color-white;
+	border-radius: 2.8rem 2.8rem 0 0;
+	@include box-shadow-depth(2);
+	box-sizing: border-box;
+
+	opacity: 0;
+	transform: translateZ(0) translateY(100%);
+	transition: transform $time $fancy, opacity $time $time;
+
+	&:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 10rem;
+		top: auto;
+		right: 0;
+		bottom: -9.99rem;
+		left: 0;
+		background: $color-white;
+	}
+
+	&:not(.ac-bottom-drawer--visible) {
+		pointer-events: none;
+	}
+
+	&--flat {
+		@include box-shadow-depth(0);
+		background: transparent;
+	}
+
+	&--omega {
+		background: $color-omega;
+		box-shadow: 0 0.2rem 2rem rgba($color-black, 0.5);
+
+		&:after {
+			background: $color-omega;
+		}
+	}
+
+	&--visible {
+		opacity: 1;
+		transform: translateZ(0) translateY(0);
+		transition: transform $time $fancy ($time),
+			opacity ($time * 0.5) ($time * 1);
+	}
+}

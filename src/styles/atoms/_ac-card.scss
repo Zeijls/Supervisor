@@ -1,0 +1,236 @@
+.ac-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  margin: 0 auto 1.6rem;
+  padding: 1.4rem 1.6rem;
+  background: $color-white;
+  border-radius: 1rem;
+  @include box-shadow-depth(2);
+
+  transition: box-shadow ($time * 1.5), transform ($time * 1.5) $ease-out;
+
+  &--white {
+    background: $color-white;
+  }
+
+  &--light {
+    background: $color-offwhite;
+  }
+
+  &--pattern {
+    // background: $color-white url('~@assets/images/background-pattern-2x.png') 50% 50% no-repeat;
+  }
+
+  &--transparent {
+    background: transparent;
+  }
+
+  &--placeholder {
+    background: transparent;
+    border: 0.2rem dashed $color-light;
+
+    @include font-size(1.6rem);
+    @include font-weight-regular;
+    font-style: italic;
+    color: $color-medium;
+  }
+
+  &--raised {
+    @include box-shadow-depth(2);
+  }
+
+  &--auth {
+    max-height: 100vh;
+    overflow: auto;
+
+    @include respond-min($screen-md-min) {
+      margin: 2.5rem 0;
+    }
+
+    @include respond-max($screen-sm-max) {
+      max-height: 100vh;
+      margin: 0;
+    }
+
+    .ac-card__content {
+      @include respond-min($screen-sm-min) {
+        padding: 3rem 3rem 1rem;
+      }
+
+      @include respond-max($screen-xxs-max) {
+        padding: 2rem 1rem 2rem;
+      }
+    }
+    @include box-shadow-depth(3);
+
+    .ac-back-arrow {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      position: relative;
+      height: 100%;
+      margin: 0 2rem 0 0;
+
+      @include font-size(2.4rem);
+      text-decoration: none;
+      color: $color-medium;
+
+      transition: color $time;
+
+      @include prevent-highlight;
+      @include disable-appearance;
+
+      &:hover {
+        color: $color-pitch;
+      }
+
+      // .ac-icon {
+      // 	position: relative;
+      // }
+    }
+  }
+
+  &__content {
+    flex-wrap: inherit;
+    flex-direction: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+    text-align: inherit;
+
+    position: relative;
+    width: 100%;
+    padding: 2rem 1.5rem;
+
+    @include respond-max($screen-xs-max) {
+      padding: 1.5rem 1rem;
+    }
+
+    > span {
+      display: inherit;
+      flex-wrap: inherit;
+      align-items: inherit;
+      justify-content: inherit;
+      text-align: inherit;
+
+      position: inherit;
+      width: 100%;
+    }
+  }
+}
+
+.ac-auth-form-wrp {
+  flex-wrap: inherit;
+  flex-direction: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  text-align: inherit;
+
+  position: relative;
+  width: 100%;
+  margin: 1.5rem 0;
+
+  .ac-heading {
+    margin: 0 0 2rem;
+  }
+
+  form {
+    // margin: 1.5rem 0;
+    // padding: 3rem 1.5rem 2rem 1.5rem;
+  }
+}
+
+.ac-answer-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 15rem;
+  margin: 0 0.8rem 1.6rem;
+  text-align: center;
+
+  @include font-heading;
+  @include font-size(1.6rem);
+  @include font-weight-bold;
+  line-height: 1.63;
+  text-transform: uppercase;
+  color: $color-omega;
+
+  transition: color $time;
+
+  &--horizontal {
+    justify-content: flex-start;
+    height: auto;
+    margin: 0 0 1.6rem;
+    padding: 1.2rem 2.4rem 0.8rem;
+    line-height: 1;
+  }
+
+  &--selected {
+    @include gradient-diagonal($color-alpha-light, $color-alpha-medium);
+    color: $color-white;
+  }
+}
+
+.ac-comment-card {
+  padding: 2rem 1.6rem 1.4rem;
+  text-align: left;
+
+  .ac-rich-content {
+    p {
+      padding-right: 4.8rem;
+      text-align: left;
+
+      @include line-clamp(5, 1.5);
+    }
+  }
+}
+
+.ac-comment-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: 0;
+  width: 3.2rem;
+  height: 3.2rem;
+  top: auto;
+  right: 1.6rem;
+  bottom: 1.6rem;
+  left: auto;
+  padding: 0.8rem;
+  background: $color-white;
+  border-radius: 50%;
+  @include box-shadow-depth(2);
+
+  @include font-size(2.2rem);
+  text-align: center;
+  line-height: 1;
+  color: $color-omega;
+
+  &:after {
+    z-index: 0;
+    // content: $ac-icon--edit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 3.2rem;
+    height: 3.2rem;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    // @include font-icon();
+    @include font-size(2.2rem);
+    font-weight: unset;
+    line-height: 1;
+    text-align: center;
+    vertical-align: middle;
+    color: rgba($color-omega, 0.35);
+  }
+}

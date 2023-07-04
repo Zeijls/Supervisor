@@ -1,0 +1,99 @@
+.ac-drop-down {
+  &__menu-container {
+    position: relative;
+    width: 100%;
+  }
+
+  &__trigger {
+    text-align: left;
+    border: 1px solid $color-beta;
+    margin: 1rem 0;
+    border-radius: 5px;
+    background: none;
+    color: $color-omega;
+    font-size: 1.5rem;
+    padding: 1rem;
+    width: 50%;
+    list-style: none;
+  }
+
+  &__trigger-title {
+    color: $color-beta;
+    border: none;
+  }
+
+  &__menu {
+    background: #ffffff;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      border: 1px solid $color-beta;
+      width: 50%;
+      border-radius: 5px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+  }
+
+  &__item {
+    padding: 1rem 0;
+    margin: 1rem 1rem 0 1rem;
+    border-bottom: 1px solid $color-beta;
+  }
+
+  &__item-label {
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__title {
+    @include font-body;
+    color: $color-omega;
+  }
+
+  &__input:checked {
+    color: $color-alpha;
+    display: none;
+  }
+
+  &__nameblock {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  &__checkmark {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  &__function {
+    font-size: 1.3rem;
+    color: $color-omega;
+    font-style: italic;
+    margin: 0;
+  }
+}

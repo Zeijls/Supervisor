@@ -1,0 +1,131 @@
+.ac-pill {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  @include box-shadow-depth(2);
+  overflow: hidden;
+
+  @include font-regular;
+  @include font-size(1.2rem);
+  line-height: 1;
+  color: $color-omega;
+
+  cursor: pointer;
+  @include prevent-highlight;
+  @include disable-appearance;
+
+  transition: color $time, opacity $time, box-shadow $time;
+
+  &:active {
+    @include box-shadow-depth(1);
+  }
+
+  &--button {
+    flex-direction: column;
+    width: 9rem;
+    margin: auto;
+    padding: 0.8rem;
+    border-radius: 1rem;
+
+    @include prevent-highlight;
+    @include disable-appearance;
+
+    &[disabled],
+    &:disabled {
+      @include box-shadow-depth(1);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  &--white {
+    border-color: rgba($color-white, 0.6);
+    color: $color-omega;
+  }
+
+  &--omega {
+    border-color: rgba($color-omega, 1);
+    color: $color-white;
+  }
+
+  &--cta {
+    width: 9rem;
+    height: 9rem;
+    @include gradient-diagonal($color-alpha-light, $color-alpha-medium);
+    border-radius: 50%;
+    color: $color-white;
+  }
+
+  &__icon {
+    position: relative;
+    top: -0.1rem;
+    margin: 0 1rem 0 0;
+    @include font-size(2.4rem);
+    text-align: center;
+    line-height: 1;
+    color: inherit;
+
+    .ac-pill--button & {
+      margin: 0 auto 0.6rem;
+    }
+
+    .ac-pill--cta & {
+      margin: 0 auto;
+      @include font-size(3.6rem);
+    }
+
+    &:after {
+      z-index: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 2.4rem;
+      height: 2.4rem;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      // @include font-icon();
+      @include font-size(2.4rem);
+      font-weight: unset;
+      line-height: 1;
+      text-align: center;
+      vertical-align: middle;
+      color: rgba($color-omega, 0.35);
+    }
+
+    // &.ac-icon--incandescent {
+    //   &:after {
+    //     content: $ac-icon--incandescent-tt;
+    //   }
+    // }
+
+    // &.ac-icon--home-remove-outline {
+    //   &:after {
+    //     content: $ac-icon--home-remove;
+    //   }
+    // }
+
+    // &.ac-icon--thumbs-down-outline {
+    //   &:after {
+    //     content: $ac-icon--thumbs-down;
+    //   }
+    // }
+  }
+
+  &__label {
+    @include font-regular;
+    @include font-size(1rem);
+    text-align: center;
+    line-height: 1;
+    color: inherit;
+  }
+}

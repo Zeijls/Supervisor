@@ -1,0 +1,42 @@
+.ac-headers {
+  &__title {
+    font-size: 3.5rem;
+    margin: 1rem 0;
+    @include font-weight-semibold;
+    color: $color-black;
+  }
+
+  &__detail {
+    margin: 0 0 1rem 0;
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    margin-top: 0;
+  }
+
+  &__link {
+    color: $color-alpha;
+    @include font-weight-regular;
+    text-decoration: none;
+    margin-right: 0.5rem;
+  }
+
+  &__paragraph {
+    margin: 0;
+    @include font-weight-regular;
+  }
+
+  &__newContract {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    margin: 2rem 0 0;
+  }
+
+  &__client-title {
+    margin-bottom: 5rem;
+  }
+}

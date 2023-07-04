@@ -1,0 +1,198 @@
+.ac-modal {
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  padding: 1.5rem 0;
+  background-color: rgba($color-pitch, 0.8);
+  @include gradient-radial(rgba($color-pitch, 0.6), rgba($color-black, 0.8));
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translate3d(0, 0, 0);
+  transform: translateZ(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $time ($time * 1.5), z-index 0s ($time * 2);
+  &__card {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    max-width: calc(100vw - 10rem);
+    height: auto;
+    max-height: calc(100vh - 10rem);
+    margin: auto;
+    padding: 1rem;
+    background-color: #f2f2f2;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.15rem 0.3rem rgba($color-black, 0.2),
+      0 0.5rem 1rem rgba($color-black, 0.15),
+      0 1.5rem 3rem rgba($color-black, 0.1);
+    // scroll-behavior: smooth;
+    overflow: visible;
+    opacity: 0;
+    transform: translate3d(0, 0, 0) translateY(4rem);
+    transition: width ($time * 0.5), transform ($time * 0.5) ease-in-out,
+      opacity ($time * 0.5);
+    &--offset {
+      top: -13.5%;
+    }
+    > div[style] {
+      min-width: 52rem;
+    }
+  }
+  &__close-icon {
+    z-index: +10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 2.4rem;
+    height: 2.4rem;
+    top: 1.8rem;
+    right: 2rem;
+    bottom: auto;
+    left: auto;
+    background: transparent;
+    border: none;
+    border-radius: 0.2rem;
+    @include disable-appearance;
+    @include prevent-highlight;
+    cursor: pointer;
+    @include font-size(2.4rem);
+    color: rgba($color-pitch, 0.5);
+    transition: color $time;
+    &:hover {
+      color: rgba($color-pitch, 1);
+    }
+  }
+  &--centered {
+    text-align: center;
+  }
+  &--visible {
+    z-index: 100001;
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity $time, z-index 0s 0s;
+    .ac-modal__card {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) translateY(0);
+      transition: transform $time ease-in-out, opacity $time;
+      transition-delay: $time;
+    }
+  }
+  &__title {
+    flex: 0;
+    position: relative;
+    max-width: 50rem;
+    padding: 1rem 3rem 1rem 1rem;
+    margin: 0;
+    @include font-heading;
+    @include font-size(2rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    line-height: 1.35;
+    text-align: left;
+    color: $color-pitch;
+    .ac-modal--centered & {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+  &__content {
+    display: flex;
+    flex: 1 0 auto;
+    padding: 1rem;
+  }
+  &__action-bar {
+    display: flex;
+    align-content: flex-start;
+    justify-content: space-between;
+  }
+  &__action {
+    &--cancel {
+      margin-right: auto;
+      margin-left: 0;
+    }
+    &--confirm {
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+}
+
+.ac-contract-card-modal {
+  width: 80rem;
+}
+.ac-edit-company-modal,
+.ac-edit-configuration-modal,
+.ac-edit-contract-modal,
+.ac-edit-control-unit-modal,
+.ac-edit-control-unit-type-modal,
+.ac-edit-hammer-modal,
+.ac-edit-hammer-type-modal,
+.ac-edit-powerpack-modal,
+.ac-edit-powerpack-type-modal,
+.ac-edit-profile-modal,
+.ac-edit-profile-credentials-modal,
+.ac-edit-project-modal,
+.ac-edit-user-modal,
+.ac-edit-user-credentials-modal {
+  width: 50rem;
+}
+.ac-edit-location-modal {
+  width: 80rem;
+  @include respond-max($screen-sm-max) {
+    width: 90vw;
+  }
+}
+.ac-keyboard-shortcuts-modal {
+  width: 70rem;
+}
+.ac-multi-select-modal {
+  width: 70rem;
+  transition: width $time;
+  &--wide {
+    width: 90rem;
+  }
+  @include respond-max($screen-sm-max) {
+    width: 90vw;
+  }
+}
+.ac-confirmation-modal {
+  width: 50rem;
+  text-align: center;
+  em {
+    @include font-weight-bold;
+    text-decoration: underline;
+  }
+  .ac-modal__title {
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+}
+.ac-timeout-notice-modal {
+  width: 55rem;
+  transition: width $time;
+  &--dense {
+    width: 50rem;
+  }
+  .ac-modal__title {
+    margin: 0 auto 3rem;
+  }
+}
+.ac-no-internet-connection-notice-modal {
+  width: 45rem;
+  .ac-icon--wifi-off {
+    color: $color-alpha;
+  }
+}

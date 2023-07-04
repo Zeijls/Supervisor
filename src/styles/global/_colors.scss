@@ -1,0 +1,91 @@
+// 9 Shades of Grey
+$color-white: #ffffff;
+$color-eggwhite: #f4f4f6;
+$color-dusty: #f2f2f2;
+$color-offwhite: #d2d2d2;
+$color-light: #b5c5d5;
+$color-subtle: #7f94a9;
+$color-medium: #80868e;
+$color-dusk: #6a6a6a;
+$color-dark: #333333;
+$color-pitch: #1d1d1d;
+$color-black: #000;
+
+// Supervisor colours
+// Blue
+$color-supervisor-dark-blue: #0023fa;
+$color-supervisor-blue: #2e4aff;
+$color-supervisor-light-blue: #6f82fd;
+$color-supervisor-dragAndDrop-zone-blue: #edf5ff;
+$color-supervisor-dragAndDrop-line-blue: #b7d8ff;
+
+// Grey
+$color-supervisor-dark-grey: #717171;
+$color-supervisor-light-grey: #e5e5e5;
+
+// Dark
+$color-supervisor-dark: #333333;
+$color-supervisor-extra-dark: #1c1c1c;
+
+// Red
+$color-supervisor-red: #fc6f6f;
+$color-supervisor-green: #bde08c;
+$color-supervisor-light-green: #e2f5c6;
+
+// Colours
+$color-royalblue: #0a3e75;
+$color-lightblue: #a3cdff;
+
+$color-minty: #50e3c2;
+
+$color-grass: #6dd400;
+
+$color-bloody: #ff4040;
+
+$color-coolpink: #e964ff;
+$color-coolpink-alt: #892eff;
+
+$color-yellow: #ffa009;
+$color-yellow-alt: #ffb109;
+
+$color-gold-light: #fff7be;
+$color-gold: #feed8a;
+
+$color-orange: #fa9600;
+$color-orange-light: #f49023;
+$color-orange-medium: #ee5a29;
+$color-orange-alt: #ff7609;
+
+$color-facebook: #3b5998;
+$color-twitter: #55acee;
+$color-google: #4285f4;
+$color-linkedin: #0077b5;
+$color-googleplus: #dd4b39;
+$color-youtube: #ff0000;
+$color-instagram: #405de6;
+
+// Colours => Aliases
+$color-alpha: $color-supervisor-blue;
+$color-alpha-light: $color-supervisor-light-blue;
+$color-alpha-medium: $color-supervisor-blue;
+$color-alpha-dark: $color-supervisor-dark-blue;
+$color-alpha-alt: $color-supervisor-dark-blue;
+$color-alpha-dragAndDrop-zone: $color-supervisor-dragAndDrop-zone-blue;
+$color-alpha-dragAndDrop-line: $color-supervisor-dragAndDrop-line-blue;
+
+$color-omega: $color-supervisor-dark-grey;
+$color-omega-light: $color-supervisor-light-grey;
+$color-omega-dark: $color-royalblue;
+$color-omega-alt: $color-royalblue;
+
+$color-beta: $color-supervisor-light-grey;
+$color-beta-alt: $color-yellow-alt;
+
+$color-delta: $color-supervisor-dark;
+$color-delta-dark: $color-supervisor-extra-dark;
+$color-delta-alt: $color-orange-alt;
+
+// Colours => States
+$color-success: $color-grass;
+$color-error: $color-supervisor-red;
+$color-warning: $color-orange;

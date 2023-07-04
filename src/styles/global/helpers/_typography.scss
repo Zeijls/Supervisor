@@ -1,0 +1,132 @@
+.h-text {
+	&--bold,
+	&--strong {
+		font-weight: 700;
+	}
+
+	&--semibold {
+		font-weight: 600;
+	}
+
+	&--italic {
+		font-style: italic;
+	}
+
+	&--underlined {
+		text-decoration: underline;
+	}
+
+	&--color-black {
+		color: $color-black;
+	}
+
+	&--color-pitch {
+		color: $color-pitch;
+	}
+
+	&--color-medium {
+		color: $color-medium;
+	}
+
+	&--color-subtle {
+		color: $color-subtle;
+	}
+
+	&--color-light {
+		color: $color-light;
+	}
+
+	&--color-white {
+		color: $color-white;
+	}
+
+	&--color-alpha {
+		color: $color-alpha;
+	}
+
+	&--color-omega {
+		color: $color-omega;
+	}
+
+	&--color-error {
+		color: $color-error;
+	}
+
+	&--align-left {
+		text-align: left !important;
+	}
+
+	&--align-center {
+		text-align: center !important;
+	}
+
+	&--align-right {
+		text-align: right !important;
+	}
+
+	&--tt-none {
+		text-transform: none !important;
+	}
+
+	&--tt-uppercase {
+		text-transform: uppercase;
+	}
+
+	&--tt-lowercase {
+		text-transform: lowercase;
+	}
+
+	&--tt-capitalize {
+		text-transform: capitalize;
+	}
+
+	&--subtext {
+		@include font-body;
+		@include font-size(1.4rem);
+		font-weight: unset;
+		line-height: 1.35;
+	}
+
+	&--size-tiny {
+		@include font-size(0.9rem);
+	}
+
+	&--size-small {
+		@include font-size(1.1rem);
+	}
+
+	&--size-smaller {
+		@include font-size(1.4rem);
+	}
+
+	&--size-normal {
+		@include font-size(1.6rem);
+	}
+
+	&--size-regular {
+		font-size: 1.8rem !important;
+	}
+
+	&--size-medium {
+		@include font-size(2rem);
+	}
+
+	&--size-big {
+		@include font-size(3rem);
+		line-height: 1;
+	}
+
+	&--size-bigger {
+		@include font-size(4.2rem);
+		line-height: 1;
+	}
+
+	&--size-huge {
+		@include font-size(6.66rem);
+		line-height: 1;
+	}
+
+	&--family-body {
+		@include font-body();
+	}
+}

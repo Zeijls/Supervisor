@@ -1,0 +1,47 @@
+@mixin font-icon() {
+  font-family: $icomoon-font-family;
+}
+
+@mixin font-heavy() {
+  font-family: 'Work Sans', arial, sans-serif;
+}
+
+@mixin font-heading() {
+  font-family: 'Work Sans', arial, sans-serif;
+}
+
+@mixin font-sub-heading() {
+  font-family: 'Work Sans', arial, sans-serif;
+}
+
+@mixin font-body() {
+  font-family: 'Work Sans', arial, sans-serif;
+}
+
+@mixin font-italic() {
+  font-family: 'Work Sans', arial, sans-serif;
+}
+
+@mixin font-regular() {
+  font-family: 'Work Sans', arial, sans-serif;
+}
+
+@mixin font-mono() {
+  font-family: 'Roboto', monospace, arial, sans-serif;
+}
+
+@mixin font-weight-light() {
+  font-weight: 100;
+}
+@mixin font-weight-regular() {
+  font-weight: 400;
+}
+@mixin font-weight-medium() {
+  font-weight: 500;
+}
+@mixin font-weight-semibold() {
+  font-weight: 700;
+}
+@mixin font-weight-bold() {
+  font-weight: 900;
+}

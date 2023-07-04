@@ -1,0 +1,41 @@
+.ac-tag {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+	max-width: calc(100% - 1.6rem);
+	padding: 0.8rem;
+	border: 0.2rem solid $color-alpha;
+	border-radius: 4rem;
+
+	@include font-regular;
+	@include font-size(1.2rem);
+	line-height: 1;
+	color: $color-alpha;
+
+	mark {
+		display: inline-flex;
+		position: relative;
+		margin: auto 0.5rem 0 0;
+		top: 0.1rem;
+		background: transparent;
+
+		@include font-regular;
+		@include font-size(1.3rem);
+		font-weight: 600;
+		line-height: 1;
+		color: inherit;
+	}
+
+	&--white {
+		border-color: rgba($color-white, 0.6);
+		color: $color-white;
+	}
+
+	&--omega {
+		border-color: rgba($color-omega, 1);
+		color: $color-omega;
+	}
+}

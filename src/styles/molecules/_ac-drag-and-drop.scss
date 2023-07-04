@@ -1,0 +1,66 @@
+.ac-drag-and-drop {
+  width: 20rem;
+
+  &__zone {
+    width: 40vw;
+    padding: 1rem;
+    text-align: left;
+    background: $color-alpha-dragAndDrop-zone;
+    border-radius: 5px;
+    border: $color-alpha-dragAndDrop-line 3px dashed;
+    box-shadow: 5px 5px 10px #c0c0c0;
+
+    &--active {
+      background-color: $color-supervisor-light-green;
+      border: $color-supervisor-green 3px dashed;
+      content: 'Drag here :)';
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-starts;
+    padding: 1rem 2rem;
+  }
+
+  &__paragraph {
+    z-index: 2;
+    opacity: 1;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+
+  &__icon {
+    @include font-size(2rem);
+    margin-right: 1rem;
+  }
+
+  &__browse {
+    color: transparent;
+    margin: auto 0;
+    padding: 0;
+  }
+
+  &__browse::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+
+  &__browse::before {
+    content: 'browse';
+    color: $color-alpha;
+    text-decoration: underline;
+    display: inline-block;
+    background: none;
+    border: none;
+    border-radius: 3px;
+    padding: 0;
+    outline: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+  }
+}

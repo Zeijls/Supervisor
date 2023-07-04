@@ -1,0 +1,18 @@
+.ac-toaster-hoc {
+	z-index: 100002;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	flex-direction: column;
+	position: fixed;
+	top: auto;
+	right: 0;
+	bottom: 2rem;
+	left: auto;
+
+	transition: bottom $time $swift;
+
+	&[style]:not([style='']) {
+		transition: bottom $time $swift $time;
+	}
+}

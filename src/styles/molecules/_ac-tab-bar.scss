@@ -1,0 +1,72 @@
+.ac-tab-bar {
+  position: relative;
+  margin: 4rem 0 2rem;
+
+  &__tabs {
+    position: relative;
+    border-top: 2px solid $color-beta;
+    z-index: 1;
+  }
+
+  &__contract-tab {
+    display: flex;
+    border-bottom: 3px solid orange;
+  }
+
+  &__contract-svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  &__tab {
+    border-bottom: none;
+    width: inherit;
+    // padding: 2rem 1.5rem;
+  }
+
+  &__tab--active {
+    background: none;
+    width: inherit;
+  }
+
+  &__tab--active > span {
+    color: $color-alpha;
+  }
+
+  &__icon,
+  .ac-button .ac-icon.ac-tab-bar__icon {
+    @include font-size(2rem);
+    margin-right: 1rem;
+  }
+
+  &__indicator {
+    display: block;
+    position: absolute;
+    width: auto;
+    height: 0.3rem;
+    top: auto;
+    right: 100%;
+    left: 0;
+    bottom: 0;
+    background: $color-alpha;
+    border-radius: 0;
+
+    &--static {
+      transition: none;
+    }
+
+    // will-change: right, left;
+    transform: translateZ(0);
+    // transition: right ($time * 2) $in-out, left ($time * 2) $in-out;
+
+    &--move-left {
+      transition: right ($time * 2) ($time * 0.5) $swift,
+        left ($time * 2) $swift;
+    }
+
+    &--move-right {
+      transition: left ($time * 2) ($time * 0.5) $swift,
+        right ($time * 2) $swift;
+    }
+  }
+}

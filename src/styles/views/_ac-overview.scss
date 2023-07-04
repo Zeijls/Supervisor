@@ -1,0 +1,29 @@
+.ac-overview {
+  background-color: #f2f2f2;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 10rem;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__no-results {
+    margin: 10rem 0 0;
+    text-align: center;
+    &__title {
+      @include font-size(2rem);
+      @include font-weight-medium;
+      color: $color-omega;
+    }
+
+    &__svg {
+      width: 20%;
+      height: 20%;
+      margin: 0;
+    }
+  }
+}

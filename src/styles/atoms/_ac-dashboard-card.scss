@@ -1,0 +1,94 @@
+.ac-dashboard-card {
+  width: 100%;
+  &__overview {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  &__card {
+    background-color: $color-white;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 5px;
+    margin-right: 3rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+
+  &__new-card {
+    background-color: $color-alpha;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 5px;
+    margin-right: 3rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+
+  &__new-card:hover {
+    opacity: 0.95;
+  }
+
+  &__new-title {
+    text-align: center;
+    font-size: 8rem;
+    color: $color-alpha;
+    @include font-weight-medium;
+    margin: 0 auto 2rem;
+    color: $color-white;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 4rem;
+    color: $color-alpha;
+    @include font-weight-semibold;
+    margin: 0 auto 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__new-paragraph {
+    text-align: center;
+    font-size: 1.5rem;
+    color: $color-white;
+    margin: 0 auto;
+    @include font-sub-heading;
+  }
+
+  &__paragraph {
+    text-align: center;
+    font-size: 1.5rem;
+    color: $color-alpha;
+    margin: 0 auto 2rem;
+    @include font-sub-heading;
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: $color-delta;
+    color: $color-white;
+    height: 5rem;
+    border: none;
+    font-size: 1.5;
+  }
+
+  &__add.ac-icon {
+    @include font-size(8rem);
+    @include font-weight-medium;
+  }
+
+  &__layer.ac-icon {
+    color: $color-beta;
+    @include font-size(4rem);
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+}

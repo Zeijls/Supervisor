@@ -1,0 +1,48 @@
+.ac-divider {
+	position: relative;
+	width: 100%;
+	height: 0.1rem;
+	margin: 2.4rem 0;
+
+	background: $color-light;
+
+	&--white {
+		background: $color-white;
+	}
+
+	&--offwhite {
+		background: $color-offwhite;
+	}
+
+	&--light {
+		background: $color-light;
+	}
+
+	&--subtle {
+		background: $color-subtle;
+	}
+
+	&--medium {
+		background: $color-medium;
+	}
+
+	&--dark {
+		background: $color-dark;
+	}
+
+	&--pitch {
+		background: $color-pitch;
+	}
+
+	&--alpha {
+		background: $color-alpha;
+	}
+
+	&--alpha-light {
+		background: $color-alpha-light;
+	}
+
+	&--omega {
+		background: $color-omega;
+	}
+}

@@ -1,0 +1,132 @@
+Options +FollowSymlinks
+Options -Indexes
+Options -MultiViews
+
+DirectoryIndex index.html
+FileETag none
+ServerSignature Off
+AddCharset UTF-8 .css
+AddDefaultCharset UTF-8
+DefaultLanguage nl
+
+<IfModule mod_headers.c>
+	# Vary: Accept for all the requests to jpeg and png
+	Header append Vary Accept env=REQUEST_image
+</IfModule>
+
+<IfModule mod_mime.c>
+	AddType image/svg+xml                   .svg .svgz 
+	AddType image/x-icon                    .ico
+	AddType image/webp                    	.webp
+
+	AddType video/ogg                      ogv
+	AddType video/mp4                      mp4 m4v f4v f4p
+	AddType video/webm                     webm
+	AddType video/x-flv                    flv
+
+	AddType font/opentype                   .otf
+
+	AddType application/javascript          .js
+	AddType application/vnd.ms-fontobject   .eot
+	AddType application/x-font-ttf          .ttf .ttc
+	AddType application/x-font-woff         .woff
+	AddType application/font-woff2          .woff2
+</Ifmodule>
+
+<Ifmodule mod_expires.c>
+	ExpiresActive On
+	ExpiresDefault "access 1 month"
+
+	# -> images
+	ExpiresByType image/* "access 1 month"
+	ExpiresByType image/webp "access 1 month"
+	ExpiresByType image/gif "access 1 month"
+	ExpiresByType image/png "access 1 month"
+	ExpiresByType image/jpeg "access 1 month"
+	ExpiresByType image/svg "access 1 month"
+	ExpiresByType image/svg+xml "access 1 month"
+	ExpiresByType image/x-icon "access 1 year"
+
+	# -> fonts
+	ExpiresByType application/vnd.ms-fontobject "access 1 year"
+	ExpiresByType application/x-font-ttf "access 1 year"
+	ExpiresByType application/x-font-woff "access 1 year"
+	ExpiresByType application/font-woff2 "access 1 year"
+
+	# -> generics
+	ExpiresByType text/css "access 1 month"
+	ExpiresByType text/html "access 1 month"
+	ExpiresByType text/javascript "access 1 month"
+	ExpiresByType text/plain "access 1 month"
+	ExpiresByType text/x-javascript "access 1 month"
+
+	# -> fallbacks
+	ExpiresByType application/pdf "access 1 month"
+	ExpiresByType application/x-javascript "access 1 month"
+	ExpiresByType application/x-shockwave-flash "access 1 year"
+
+	# -> media
+	ExpiresByType video/ogg "access plus 1 month"
+	ExpiresByType audio/ogg "access plus 1 month"
+	ExpiresByType video/mp4 "access plus 1 month"
+	ExpiresByType video/webm "access plus 1 month"
+</Ifmodule>
+
+# 1 year cache for fonts
+<FilesMatch "\.(ttf|woff|woff2|eot)$">
+	Header set Cache-Control "max-age=31536000, public, must-revalidate"
+</FilesMatch>
+
+# 4 weeks cache for images
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|webp|png|gif|js|css)$">
+	Header set Cache-Control "max-age=2419200, public, must-revalidate"
+</FilesMatch>
+
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/css text/x-component application/x-javascript application/javascript text/javascript text/x-js text/html text/richtext image/svg+xml text/plain text/xsd text/xsl text/xml image/bmp application/java application/msword application/vnd.ms-fontobject application/x-msdownload image/x-icon image/webp application/json application/vnd.ms-access application/vnd.ms-project application/x-font-otf application/vnd.ms-opentype application/vnd.oasis.opendocument.database application/vnd.oasis.opendocument.chart application/vnd.oasis.opendocument.formula application/vnd.oasis.opendocument.graphics application/vnd.oasis.opendocument.presentation application/vnd.oasis.opendocument.spreadsheet application/vnd.oasis.opendocument.text audio/ogg application/pdf application/vnd.ms-powerpoint image/svg+xml application/x-shockwave-flash image/tiff application/x-font-ttf application/vnd.ms-opentype audio/wav application/vnd.ms-write application/font-woff application/x-font-woff application/font-woff2 application/vnd.ms-excel
+
+	<IfModule mod_mime.c>
+		# DEFLATE by extension
+		AddOutputFilter DEFLATE js css htm html xml
+	</IfModule>
+</IfModule>
+
+<Files .htaccess>
+	order allow,deny
+	deny from all
+</Files>
+
+<IfModule mod_php7.c>
+	php_value zlib.output_compression 16386
+</IfModule>
+
+<IfModule mod_speling.c>
+	CheckSpelling On
+</IfModule>
+
+SetEnvIf host ^(?!localhost).*$ ENFORCEHTTPS
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+
+	# Check if browser supports WebP images
+	RewriteCond %{HTTP_ACCEPT} image/webp
+
+	# Check if WebP replacement image exists
+	RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+
+	# Serve WebP image instead
+	RewriteRule (.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=REQUEST_image]
+
+	RewriteCond %{HTTP_HOST} !=localhost [NC]
+	RewriteCond %{HTTP_HOST} !=127.0.0.1 [NC]
+	RewriteCond %{HTTPS} off
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,QSA,R=301]
+
+	RewriteRule ^index\.html$ - [L,QSA]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule . /index.html [L,QSA]
+</IfModule>

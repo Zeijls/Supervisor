@@ -1,0 +1,735 @@
+.ac-button-cta-wrp {
+  display: flex;
+  position: relative;
+  width: auto;
+
+  @include respond-min($screen-sm-min) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  @include respond-max($screen-sm-max) {
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 2.5rem auto 0;
+  }
+
+  @include respond-max($screen-xs-max) {
+    flex-wrap: wrap;
+    margin: 3.5rem auto 0;
+  }
+}
+
+.ac-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: $color-pitch;
+  border: 0.1rem solid;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  @include font-body;
+  @include font-size(1.6rem);
+  @include font-weight-medium;
+  @include font-smoothing;
+  vertical-align: middle;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2.8rem;
+  color: $color-white;
+
+  @include disable-appearance;
+  @include prevent-highlight;
+  cursor: pointer;
+
+  // transition: box-shadow 300ms, background 300ms, border-color 300ms,
+  //   color 300ms, opacity 300ms;
+
+  @include target-metro {
+    @include font-weight-regular;
+  }
+
+  &:not(.h-text--align-left):not(.ac-button--subtle-transparent) {
+    @include respond-max($screen-xxs-max) {
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  > span:not(.ac-ripple) {
+    z-index: 1;
+    position: relative;
+    vertical-align: middle;
+    top: 0.1rem;
+    @include font-weight-medium;
+    line-height: 1;
+  }
+
+  .ac-icon {
+    position: relative;
+    height: 1.5rem;
+    margin: auto;
+    top: -0.1rem;
+    @include font-size(2.4rem);
+    font-weight: normal;
+    line-height: 1;
+    vertical-align: middle;
+    @include disable-appearance;
+    @include prevent-highlight;
+  }
+
+  &--white {
+    background: none;
+    width: fit-content;
+    border: none;
+    color: $color-alpha;
+    align-items: right;
+    &:hover,
+    &:focus {
+      background: none;
+      box-shadow: 0 0 0 0.2rem rgba($color-alpha, 0.5);
+      border-color: $color-alpha;
+    }
+
+    &:active {
+      box-shadow: 0 0 0 0.2rem rgba($color-alpha, 0.5);
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: $color-offwhite;
+      border-color: $color-offwhite;
+      color: $color-medium;
+    }
+  }
+
+  &--white-edit {
+    background: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    border: none;
+    color: $color-alpha;
+    width: fit-content;
+    align-items: right;
+    justify-content: flex-end;
+    @include font-regular;
+    font-size: 1.5rem;
+
+    &:hover,
+    &:focus {
+      background: none;
+      text-decoration: underline;
+      color: $color-alpha;
+    }
+
+    // &:active {
+    //   box-shadow: 0 0 0 0.2rem rgba($color-alpha, 0.5);
+    // }
+
+    &:disabled,
+    &[disabled] {
+      background: $color-offwhite;
+      border-color: $color-offwhite;
+      color: $color-medium;
+    }
+  }
+
+  &--white-link {
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: $color-alpha;
+    width: fit-content;
+    align-items: right;
+    justify-content: flex-end;
+    @include font-regular;
+    font-size: 1.5rem;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      background: none;
+      text-decoration: underline;
+      color: $color-alpha;
+    }
+
+    // &:active {
+    //   box-shadow: 0 0 0 0.2rem rgba($color-alpha, 0.5);
+    // }
+
+    &:disabled,
+    &[disabled] {
+      background: $color-offwhite;
+      border-color: $color-offwhite;
+      color: $color-medium;
+    }
+  }
+
+  &--alpha {
+    background: $color-alpha;
+    margin: 2rem 0;
+    @include box-shadow-depth(1);
+    border: none;
+    @include font-sub-heading;
+    color: $color-white;
+    border: 0.2rem solid #2e4aff;
+
+    &:hover,
+    &:focus {
+      @include box-shadow-depth(2);
+      border-color: $color-alpha-light;
+    }
+
+    &:active {
+      @include box-shadow-depth(0);
+    }
+
+    &:disabled,
+    &[disabled] {
+      @include box-shadow-depth(0);
+    }
+  }
+
+  &--alpha--new-card {
+    width: 25rem;
+    height: 25rem;
+    background-color: $color-alpha;
+    margin-right: 3rem;
+    position: relative;
+  }
+
+  &--alpha---card {
+    width: 25rem;
+    height: 25rem;
+    background-color: $color-white;
+    margin-right: 3rem;
+    position: relative;
+  }
+
+  &--tab {
+    background: none;
+    border: none;
+    text-align: left;
+    align-items: flex-start;
+    border-color: none;
+    color: $color-omega;
+    border-radius: 0;
+    @include font-weight-medium;
+    color: $color-delta;
+    margin-left: 0;
+
+    // &:hover,
+    // &:active,
+    // &:focus {
+    //   background: none;
+    //   border-bottom: 5px solid $color-alpha;
+    // }
+
+    &:disabled,
+    &[disabled] {
+      background: $color-omega;
+      border-color: $color-omega;
+      color: $color-pitch;
+    }
+  }
+
+  &--delta {
+    background: $color-delta;
+    border-color: $color-delta;
+    width: 100%;
+
+    // @include font-weight-bold;
+    // text-transform: uppercase;
+    color: $color-white;
+    position: absolute;
+    bottom: 0;
+
+    &:hover,
+    &:active {
+      background: $color-delta-dark;
+      border-color: $color-delta-dark;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($color-omega, 0.5);
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: $color-delta;
+      border-color: $color-delta;
+      color: $color-pitch;
+    }
+  }
+
+  &--light {
+    background: $color-light;
+    border-color: $color-light;
+    color: $color-alpha-light;
+
+    &:hover,
+    &:active {
+      background: $color-light;
+      border-color: $color-light;
+      color: $color-alpha;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($color-light, 0.5);
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: $color-light;
+      border-color: $color-light;
+      color: $color-pitch;
+    }
+  }
+
+  &--transparent {
+    background: rgba($color-light, 0);
+    border-color: transparent;
+    color: $color-dark;
+
+    &:hover,
+    &:active {
+      background: rgba($color-light, 0);
+      border-color: transparent;
+      color: $color-pitch;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: rgba($color-light, 0);
+      border-color: rgba($color-light, 0);
+      color: $color-medium;
+    }
+  }
+
+  &--alpha-outline {
+    min-width: 0;
+    background: none;
+    margin: 2rem 0;
+    border: 0.2rem solid $color-alpha;
+    color: $color-alpha;
+    max-height: 5rem;
+
+    @include respond-max($screen-xs-max) {
+      padding: 0.6rem 1.5rem;
+    }
+
+    > span {
+      // text-decoration: underline;
+    }
+
+    &:hover,
+    &:focus {
+      background: rgba($color-light, 0);
+      border-color: $color-alpha;
+      box-shadow: 0 0 0 0.2rem rgba($color-alpha, 0.5);
+      color: $color-alpha;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: rgba($color-light, 1);
+      border-color: rgba($color-light, 1);
+      color: $color-light;
+    }
+
+    i {
+      @include font-size(2.2rem);
+    }
+  }
+
+  &--alpha-transparent {
+    min-width: 0;
+    padding: 0.6rem 1.7rem;
+    background: none;
+    border: none;
+    color: $color-omega;
+
+    @include respond-max($screen-xs-max) {
+      padding: 0.6rem 1.5rem;
+    }
+
+    > span {
+      // text-decoration: underline;
+    }
+
+    &:hover,
+    &:focus {
+      background: rgba($color-light, 0);
+      border-color: $color-alpha;
+      // box-shadow: 0 0 0 0.2rem rgba($color-alpha, 0.5);
+      color: $color-alpha;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: rgba($color-light, 1);
+      border-color: rgba($color-light, 1);
+      color: $color-light;
+    }
+
+    i {
+      @include font-size(2.2rem);
+    }
+  }
+
+  &--alpha-remove {
+    min-width: 0;
+    padding: 1rem 1.5rem;
+    background: none;
+    border: 0.2rem solid $color-alpha;
+    color: $color-alpha;
+    position: absolute;
+    margin: 2rem;
+    top: 0;
+    right: 0;
+
+    @include respond-max($screen-xs-max) {
+      padding: 0.6rem 1.5rem;
+    }
+
+    > span {
+      // text-decoration: underline;
+    }
+
+    &:hover,
+    &:focus {
+      background: rgba($color-light, 0);
+      border-color: $color-alpha;
+      box-shadow: 0 0 0 0.2rem rgba($color-alpha, 0.5);
+      color: $color-alpha;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: rgba($color-light, 1);
+      border-color: rgba($color-light, 1);
+      color: $color-light;
+    }
+
+    i {
+      @include font-size(2.2rem);
+    }
+  }
+
+  &--alpha-light-outline {
+    min-width: 0;
+    padding: 0.6rem 1.7rem;
+    background: rgba($color-light, 0);
+    border: 0.2rem solid lighten($color-alpha-alt, 7.5%);
+    color: $color-alpha;
+
+    @include respond-max($screen-xs-max) {
+      padding: 0.6rem 1.5rem;
+    }
+
+    > span {
+      text-decoration: underline;
+    }
+
+    &:hover,
+    &:focus {
+      background: lighten($color-alpha-alt, 2.5%);
+      border-color: lighten($color-alpha-alt, 2.5%);
+      box-shadow: 0 0 0 0.2rem rgba($color-alpha, 0.5);
+      color: darken($color-alpha, 15%);
+    }
+
+    &:active {
+      box-shadow: 0 0 0 0 rgba($color-alpha, 0.5);
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: rgba($color-light, 1);
+      border-color: rgba($color-light, 1);
+      color: $color-light;
+    }
+
+    i {
+      @include font-size(2.2rem);
+    }
+  }
+
+  &--omega-outline {
+    min-width: 0;
+    background: rgba($color-light, 0);
+    border: 0.2rem solid $color-omega;
+
+    @include font-weight-bold;
+    text-transform: uppercase;
+    color: $color-omega;
+
+    &:hover,
+    &:focus {
+      background: rgba($color-light, 0);
+      border-color: $color-omega-dark;
+      box-shadow: 0 0 0 0.2rem rgba($color-omega, 0.5);
+      color: $color-omega-dark;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: rgba($color-light, 0);
+      border-color: rgba($color-omega, 1);
+      color: $color-omega;
+    }
+
+    i {
+      @include font-size(2.2rem);
+    }
+  }
+
+  &--white-outline {
+    min-width: 0;
+    background: rgba($color-light, 0);
+    border: 0.2rem solid $color-white;
+
+    @include font-weight-bold;
+    text-transform: uppercase;
+    color: $color-white;
+
+    &:hover,
+    &:focus {
+      background: rgba($color-light, 0);
+      border-color: $color-white;
+      color: $color-white;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: rgba($color-light, 0);
+      border-color: rgba($color-white, 1);
+      color: $color-white;
+    }
+  }
+
+  &--omega-transparent {
+    min-width: 0;
+    padding: 0.8rem 0;
+    background: rgba($color-omega, 0);
+    border-color: transparent;
+    color: $color-omega;
+
+    > span {
+      text-decoration: underline;
+    }
+
+    &:hover,
+    &:active {
+      background: rgba($color-light, 0);
+      border-color: transparent;
+      color: $color-omega-dark;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: rgba($color-light, 0);
+      border-color: rgba($color-light, 0);
+      color: $color-dark;
+    }
+
+    i {
+      @include font-size(2.2rem);
+
+      &:first-child,
+      &:last-child {
+        margin: auto 0;
+      }
+    }
+  }
+
+  &--pitch-transparent {
+    min-width: 0;
+    padding: 0.8rem 0;
+    background: rgba($color-light, 0);
+    border-color: transparent;
+    color: rgba($color-dark, 0.5);
+
+    @include respond-max($screen-xxs-max) {
+      @include font-size(1.2rem);
+    }
+
+    > span {
+      text-decoration: underline;
+    }
+
+    &:hover,
+    &:active {
+      background: rgba($color-light, 0);
+      border-color: transparent;
+      color: $color-dark;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: rgba($color-light, 0);
+      border-color: rgba($color-light, 0);
+      color: $color-dark;
+    }
+
+    i {
+      @include font-size(2.2rem);
+
+      &:first-child,
+      &:last-child {
+        margin: auto 0;
+      }
+    }
+  }
+
+  &--subtle-transparent {
+    width: auto;
+    min-width: 0;
+    padding: 0.8rem 0;
+    background: none;
+    border: none;
+    color: $color-alpha;
+
+    > span {
+      text-decoration: underline;
+    }
+
+    &:hover,
+    &:active {
+      background: rgba($color-light, 0);
+      border-color: transparent;
+      color: $color-omega;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: rgba($color-light, 0);
+      border-color: rgba($color-light, 0);
+      color: $color-omega;
+    }
+
+    i {
+      @include font-size(2.2rem);
+
+      &:first-child,
+      &:last-child {
+        margin: auto 0;
+      }
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: 0.65;
+    pointer-events: none;
+  }
+
+  &__loader {
+    z-index: 0;
+    position: absolute;
+    width: auto;
+    height: 0.3rem;
+    top: auto;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+    background: darken($color-alpha, 25%);
+    border-radius: 0.3rem;
+
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: bottom center;
+    transition: opacity $time, transform $time;
+
+    .ac-button--loading & {
+      opacity: 1;
+      transform: scale(1);
+      animation: button-loader 1s infinite linear;
+    }
+  }
+
+  &--warning {
+    background: none;
+    color: $color-error;
+    border: none;
+
+    &:hover,
+    &:focus {
+      @include box-shadow-depth(1);
+      border-color: $color-alpha-alt;
+    }
+
+    &:active {
+      @include box-shadow-depth(0);
+    }
+
+    &:disabled,
+    &[disabled] {
+      @include box-shadow-depth(0);
+    }
+  }
+}
+
+@keyframes button-loader {
+  0% {
+    left: 0;
+    right: 100%;
+  }
+  50% {
+    left: 0;
+    right: 0;
+  }
+  100% {
+    left: 100%;
+    right: 0;
+  }
+}

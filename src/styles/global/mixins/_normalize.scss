@@ -1,0 +1,13 @@
+@mixin disable-appearance($value: none) {
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  appearance: $value;
+}
+
+@mixin prevent-highlight() {
+  outline: none;
+  outline: 0;
+  outline-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}

@@ -1,0 +1,480 @@
+$input-height: 5.7rem;
+$textarea-height: calc(100vh - 20rem);
+
+@mixin label-top {
+  @include font-size(1rem);
+  line-height: 1.4rem;
+
+  transform: translateY(-1.2rem) translateX(0rem);
+  transform-origin: 0 0;
+}
+
+@mixin label-center {
+  top: 2rem;
+
+  @include font-size(1.6rem);
+  line-height: 1.6rem;
+
+  transform: translateY(0) translateX(0) scale(1);
+  transform-origin: 0 0;
+}
+
+.ac-text-input {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+  margin: 0.8rem 0 2rem;
+  padding-top: 0;
+
+  transition: opacity $time;
+
+  &--disabled {
+    &:not(.ac-text-input--readonly) {
+      opacity: 0.5;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  > button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: auto;
+    height: $input-height - 0.8rem;
+    margin: 0;
+    padding: 1.6rem 1.5rem 1rem 2rem;
+    top: auto;
+    right: 0.4rem;
+    bottom: 0.4rem;
+    left: auto;
+    background: $color-eggwhite;
+    border: none;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    @include disable-appearance;
+    @include font-heading;
+    @include font-size(1.4rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
+    color: $color-pitch;
+
+    @include disable-appearance;
+    @include prevent-highlight;
+    cursor: pointer;
+
+    transition: background $time;
+
+    &:hover {
+      background: darken($color-eggwhite, 10%);
+    }
+
+    i {
+      position: relative;
+      height: 1.5rem;
+      margin: 0 1rem 0 -1rem;
+      top: -0.5rem;
+      @include font-size(2.4rem);
+      line-height: 1;
+      vertical-align: middle;
+      @include disable-appearance;
+      @include prevent-highlight;
+    }
+
+    & ~ .ac-text-input__error,
+    & + .ac-text-input__error {
+      right: calc(28% + 0.1rem);
+    }
+  }
+
+  &__label {
+    z-index: 1;
+    display: inline-block;
+    position: absolute;
+    padding: 0;
+    top: 3rem;
+    left: 1.6rem;
+    user-select: none;
+
+    @include font-body();
+    @include font-size(1.4rem);
+    @include font-weight-medium();
+    color: $color-dark;
+    cursor: pointer;
+
+    transition: background-color $time, color $time, font-size $time,
+      transform $time $swift;
+
+    @include prevent-highlight;
+    @include disable-appearance;
+    @include label-center;
+
+    pointer-events: none;
+
+    mark {
+      background: transparent;
+
+      @include font-weight-semibold();
+      color: inherit;
+
+      transition: color $time;
+    }
+
+    .ac-text-input:not(.ac-text-input--empty) &,
+    .ac-text-input:not(.ac-text-input--empty):not(.ac-text-input--placeholder)
+      &,
+    .ac-text-input--empty.ac-text-input--placeholder & {
+      @include label-top;
+    }
+  }
+
+  &__instructions,
+  &__error {
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: flex-start;
+    position: relative;
+    margin: 0;
+
+    @include font-body();
+    @include font-size(1.2rem);
+    @include font-weight-regular();
+    line-height: 1.4rem;
+    text-align: left;
+    vertical-align: middle;
+
+    transition: color $time;
+  }
+
+  &__instructions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: auto;
+    top: auto;
+    right: auto;
+    bottom: -1rem;
+    left: 0;
+    white-space: nowrap;
+    color: $color-dusk;
+
+    .ac-text-input--white & {
+      border-color: $color-white;
+    }
+
+    &:before {
+      // content: $ac-icon--help-circle;
+      position: relative;
+      margin-right: 0.3rem;
+      top: -0.05rem;
+
+      @include font-icon();
+      @include font-size(1.4rem);
+      font-weight: unset;
+      vertical-align: middle;
+    }
+  }
+
+  &__error {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: auto;
+    height: 1.6rem;
+    top: auto;
+    right: auto;
+    bottom: -2rem;
+    left: 1.6rem;
+    padding: 0;
+    background: transparent;
+    white-space: nowrap;
+    line-height: 1;
+    text-align: center;
+    color: $color-alpha;
+
+    &:before {
+      // content: $ac-icon--alert-circle-outline;
+      position: relative;
+      margin-right: 0.3rem;
+
+      @include font-icon();
+      @include font-size(1.2rem);
+      font-weight: unset;
+      line-height: 1;
+      vertical-align: middle;
+    }
+  }
+
+  &__success {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: auto;
+    top: 6.1rem;
+    right: 2.4rem;
+    bottom: auto;
+    left: auto;
+    white-space: nowrap;
+    color: $color-success;
+
+    &:before {
+      // content: $ac-icon--check;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 2.1rem;
+      height: 2rem;
+      background: rgba($color-success, 0.3);
+      border: 0.2rem solid $color-success;
+      border-radius: 50%;
+
+      @include font-icon();
+      @include font-size(1.4rem);
+      font-weight: bold;
+      line-height: 1;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+
+  &__field {
+    width: 100%;
+    height: $input-height;
+    margin: 0;
+    padding: 2.5rem 1.6rem 1.2rem;
+    background-color: $color-white;
+    border: 0.1rem solid $color-light;
+    border-radius: 0.3rem;
+    outline: none;
+
+    @include font-regular();
+    @include font-size(1.6rem);
+    @include font-weight-regular();
+    line-height: 1;
+    color: rgba($color-pitch, 1);
+    transition: background $time, border-color $time, box-shadow $time;
+
+    @include disable-appearance;
+
+    @include respond-max($screen-xs-max) {
+      @include font-size(1.6rem);
+    }
+
+    &--password {
+      padding-right: 5.6rem;
+    }
+
+    &--textarea {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      height: auto;
+      min-height: $textarea-height;
+      resize: none;
+      padding: 1.6rem 0;
+      border: none;
+      line-height: 1.63;
+    }
+
+    &:hover {
+      .ac-text-input.ac-text-input--empty:not(.ac-text-input--readonly) &,
+      .ac-text-input:not(.ac-text-input--readonly) & {
+        border-color: darken($color-light, 15%);
+      }
+    }
+
+    &:focus {
+      .ac-text-input.ac-text-input--empty:not(.ac-text-input--readonly) &,
+      .ac-text-input:not(.ac-text-input--readonly) & {
+        border-color: $color-omega;
+        color: rgba($color-pitch, 1);
+
+        & + .ac-text-input__label {
+          @include label-top;
+          color: $color-omega;
+        }
+
+        & ~ .ac-text-input__instructions {
+          color: $color-pitch;
+        }
+      }
+    }
+
+    .ac-text-input--disabled &,
+    &[disabled],
+    &:disabled {
+      background: $color-dusty;
+      border-color: $color-dusty;
+      color: $color-pitch;
+      @include prevent-highlight;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    .ac-text-input--error.ac-text-input--empty:not(.ac-text-input--readonly) &,
+    .ac-text-input--error:not(.ac-text-input--readonly) & {
+      padding-right: 44%;
+    }
+
+    .ac-text-input--readonly &,
+    &[readonly] {
+      background: $color-dusty;
+      border-color: $color-dusty;
+      color: $color-pitch;
+      @include prevent-highlight;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    &::-webkit-input-placeholder {
+      @include font-body();
+      color: $color-subtle;
+      @include prevent-highlight;
+    }
+    &::-moz-placeholder {
+      @include font-body();
+      color: $color-subtle;
+      @include prevent-highlight;
+    }
+    &:-ms-input-placeholder {
+      @include font-body();
+      color: $color-subtle;
+      @include prevent-highlight;
+    }
+    &:-moz-placeholder {
+      @include font-body();
+      color: $color-subtle;
+      @include prevent-highlight;
+    }
+
+    &--textarea {
+      &::-webkit-input-placeholder {
+        line-height: 1.63;
+      }
+      &::-moz-placeholder {
+        line-height: 1.63;
+      }
+      &:-ms-input-placeholder {
+        line-height: 1.63;
+      }
+      &:-moz-placeholder {
+        line-height: 1.63;
+      }
+    }
+
+    caret-color: $color-omega;
+    caret-color: rgba($color-omega, 1);
+
+    &:-webkit-autofill,
+    &:-internal-autofill-previewed,
+    &:-internal-autofill-selected {
+      background-color: $color-white !important;
+      background: $color-white !important;
+      color: $color-omega !important;
+    }
+  }
+
+  &__field[type='number']::-webkit-inner-spin-button,
+  &__field[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+
+  &__field[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  &--error {
+    .ac-text-input__field {
+      // border-color: $color-alpha;
+
+      &:focus {
+        // border-color: $color-alpha;
+        & ~ .ac-text-input__label,
+        & ~ .ac-text-input__instructions {
+          // color: $color-alpha;
+        }
+      }
+    }
+  }
+
+  &__eye {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    top: 1.35rem;
+    right: 1rem;
+
+    @include font-size(2rem);
+    line-height: 3rem;
+    color: $color-pitch;
+
+    cursor: pointer;
+
+    &--open {
+      color: $color-alpha-dark;
+    }
+  }
+}
+
+@keyframes eye-open {
+  0%,
+  10% {
+    border-radius: 0 90% 0 90% / 0 90% 0 90%;
+  }
+  15% {
+    border-radius: 0 100% 0 100% / 0 100% 0 100%;
+  } //Blink
+  20%,
+  30% {
+    border-radius: 0 90% 0 90% / 0 90% 0 90%;
+  }
+  60% {
+    border-radius: 0 70% 0 90% / 0 80% 0 90%;
+  } //Raise 1
+  75%,
+  80% {
+    border-radius: 0 100% 0 90% / 0 100% 0 90%;
+  }
+  95% {
+    border-radius: 0 90% 0 90% / 0 70% 0 90%;
+  } //Raise 2
+  100% {
+    border-radius: 0 90% 0 90% / 0 90% 0 90%;
+  }
+}
+
+@keyframes eye-roll {
+  0%,
+  30% {
+    transform-origin: 0% 20%;
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform-origin: 80% 100%;
+    transform: scale(1) rotate(-360deg);
+  }
+}

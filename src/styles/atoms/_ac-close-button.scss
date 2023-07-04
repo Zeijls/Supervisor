@@ -1,0 +1,42 @@
+.ac-close-button {
+	z-index: 9500;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	width: 3.8rem;
+	height: 3rem;
+	top: 2.4rem;
+	right: 2.4rem;
+	bottom: auto;
+	left: auto;
+	background: rgba($color-white, 0.2);
+	border: none;
+	border-radius: 0.4rem;
+
+	@include disable-appearance;
+	@include prevent-highlight;
+	cursor: pointer;
+
+	.ac-page--omega & {
+		background: rgba($color-white, 0.4);
+	}
+
+	&__icon {
+		@include font-size(2.2rem);
+		color: $color-white;
+	}
+
+	&--omega {
+		background: rgba($color-omega, 1);
+	}
+
+	&--light {
+		background: $color-dusty;
+
+		.ac-close-button__icon {
+			color: $color-omega;
+		}
+	}
+}

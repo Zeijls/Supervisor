@@ -1,0 +1,293 @@
+$select-box-height: 4rem;
+$select-box-border-width: 0.1rem;
+$select-box-border-color: $color-alpha-light;
+
+%ac-select-box-label-top {
+  top: -0.65rem;
+  @include font-size(1.2rem);
+  line-height: 1.2rem;
+  background-color: $color-white;
+}
+
+.ac-select-box {
+  position: relative;
+  cursor: pointer;
+
+  &--disabled {
+    opacity: 0.5;
+  }
+
+  input:not(.ac-select-box__search-input) {
+    position: absolute;
+    left: -99999rem;
+    opacity: 0;
+    visibility: hidden;
+
+    &:focus {
+      + .ac-select-box__input {
+        border-color: $color-alpha-light;
+        ~ .ac-text-input__label {
+          color: $color-alpha-light;
+        }
+        ~ .ac-text-input__instructions {
+          color: $color-alpha-light;
+        }
+      }
+    }
+  }
+
+  &__search-input {
+    position: relative;
+    width: 100%;
+    height: 4rem;
+    padding: 1.6rem 1rem;
+    border: none;
+    border: 0.1rem solid $color-medium;
+    border-color: darken($color-alpha-light, 7.5%);
+    border-radius: 0.2rem;
+    outline: none;
+    box-shadow: none;
+    box-sizing: border-box;
+
+    @include font-body();
+    @include font-size(1.4rem);
+    @include font-weight-regular();
+    text-align: left;
+    line-height: 4rem;
+
+    transition: border-color $time;
+
+    &::-webkit-input-placeholder {
+      @include prevent-highlight;
+      font-style: italic;
+    }
+    &::-moz-placeholder {
+      @include prevent-highlight;
+      font-style: italic;
+    }
+    &:-ms-input-placeholder {
+      @include prevent-highlight;
+      font-style: italic;
+    }
+    &:-moz-placeholder {
+      @include prevent-highlight;
+      font-style: italic;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border-color: $color-alpha-light;
+    }
+  }
+
+  &__label {
+    z-index: 5;
+    display: inline-block;
+    position: absolute;
+    padding: 0 0.4rem;
+    left: 1.2rem;
+    user-select: none;
+    cursor: pointer;
+
+    .ac-select-box[disabled] &,
+    .ac-select-box:disabled & {
+      cursor: default;
+    }
+
+    @include font-body();
+    @include font-size(1.2rem);
+    @include font-weight-regular();
+    color: $color-pitch;
+
+    transition: color $time, font-size $time, top $time, background-color $time;
+
+    @include prevent-highlight;
+    @include disable-appearance;
+    @extend %ac-select-box-label-top;
+
+    mark {
+      background: transparent;
+
+      @include font-weight-bold();
+      color: $color-error;
+
+      transition: color $time;
+    }
+
+    .ac-text-input--error & {
+      color: $color-error;
+
+      mark {
+        color: $color-error;
+      }
+    }
+
+    > .react-reveal {
+      display: inherit;
+      position: inherit;
+      // display: inherit;
+      // display: inherit;
+      // display: inherit;
+      // display: inherit;
+    }
+  }
+
+  &__instructions {
+    margin-left: 1.6rem;
+
+    @include font-size(1.2rem);
+    color: $color-omega-light;
+
+    transition: color $time;
+  }
+
+  &__error {
+    @include font-size(1.2rem);
+    color: $color-error;
+
+    &:before {
+      // content: $ac-icon--alert-circle;
+      padding-right: $select-box-border-width;
+      @include font-icon();
+      @include font-size(1.4rem);
+    }
+  }
+
+  &__input {
+    z-index: 3;
+    display: flex;
+    user-select: none;
+    position: relative;
+    width: 100%;
+    min-height: $select-box-height;
+    margin: 0.8rem 0 0;
+    padding: 1rem 1.5rem;
+    border: $select-box-border-width solid $select-box-border-color;
+    border-radius: 0.3rem;
+
+    @include font-body();
+    @include font-size(1.4rem);
+    @include font-weight-regular();
+    transition: border-color $time, box-shadow $time;
+
+    &:after {
+      // content: $ac-icon--chevron-down;
+      z-index: +5;
+      position: absolute;
+      top: 0.7rem;
+      right: 0.8rem;
+      padding-right: $select-box-border-width;
+
+      @include font-icon();
+      @include font-size(2.4rem);
+      transform: rotateX(0deg);
+      transition: transform $time, color $time;
+    }
+
+    .ac-select-box--open & {
+      box-shadow: 0 0 0 0.2rem rgba($color-alpha-light, 0.5);
+
+      &:after {
+        color: $color-alpha-light;
+        transform: rotateX(180deg);
+      }
+    }
+
+    &:hover {
+      border-color: $color-alpha-light;
+      box-shadow: 0 0 0 0.2rem rgba($color-alpha-light, 0.5);
+    }
+
+    &:focus {
+      border-color: $color-alpha-light;
+      box-shadow: 0 0 0 0.2rem rgba($color-alpha-light, 0.5);
+
+      ~ .ac-text-input__label {
+        color: $color-alpha-light;
+      }
+      ~ .ac-text-input__instructions {
+        color: $color-alpha-light;
+      }
+    }
+
+    &-label {
+      z-index: +5;
+      position: relative;
+      max-width: calc(100% - 5rem);
+
+      .ac-select-box:not(.ac-select-box--selected) & {
+        font-style: italic;
+        color: $color-medium;
+        @include prevent-highlight;
+      }
+    }
+  }
+
+  &__list {
+    z-index: +4;
+    position: absolute;
+    top: calc(100% - #{$select-box-border-width});
+    left: -#{$select-box-border-width};
+    right: -#{$select-box-border-width};
+    padding: 0;
+    margin: 0;
+    @include box-shadow-depth(0);
+
+    overflow: hidden;
+    pointer-events: none;
+    list-style: none;
+
+    background-color: $color-white;
+    border-bottom: 0rem solid $color-alpha-light;
+    border-radius: 0 0 0.3rem 0.3rem;
+    box-sizing: content-box;
+    transition: height ($time * 0.75) $in-out, border ($time * 0.75),
+      box-shadow ($time * 0.75);
+
+    .ac-select-box--selected & {
+      box-sizing: border-box;
+    }
+
+    .ac-select-box--open & {
+      pointer-events: all;
+      border-bottom: $select-box-border-width solid $color-alpha-light;
+      @include box-shadow-depth(4);
+      overflow: auto;
+    }
+
+    &--no-animation {
+      transition: none;
+    }
+
+    &__item {
+      text-transform: capitalize;
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      border-left: $select-box-border-width solid $color-alpha-light;
+      border-right: $select-box-border-width solid $color-alpha-light;
+      background: rgba($color-alpha-light, 0);
+      transition: background $time, color $time;
+      color: $color-dark;
+
+      &:not(.ac-select-box__list__item--static):hover {
+        background: rgba($color-alpha-light, 1);
+        color: $color-alpha;
+      }
+    }
+  }
+
+  &--error {
+    .ac-select-box__input {
+      border-color: $color-error;
+
+      &:focus {
+        border-color: $color-error;
+        ~ .ac-text-input__label,
+        ~ .ac-text-input__instructions {
+          color: $color-error;
+        }
+      }
+    }
+  }
+}

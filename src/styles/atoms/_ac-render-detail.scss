@@ -1,0 +1,54 @@
+.ac-contracts-render,
+.ac-clients-render,
+.ac-render-detail {
+  &__overview {
+    margin: 2rem auto 10rem;
+  }
+
+  &__title {
+    color: $color-delta;
+    font-size: 1.8rem;
+    @include font-weight-semibold;
+    color: $color-black;
+  }
+
+  &__paragraph {
+    margin-left: 2rem;
+    width: 100%;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 2fr 2fr;
+    background-color: $color-white;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+
+  &__rapportage {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+  }
+
+  &__rapportage-text {
+    font-size: 1.5rem;
+    color: $color-omega;
+    @include font-body;
+    width: 30%;
+    margin: 0 auto 10rem;
+  }
+
+  &__svg {
+    margin: auto;
+    height: 30%;
+  }
+
+  &__span {
+    background-color: $color-beta;
+    border-radius: 80%;
+    padding: 1rem;
+    margin: 1rem;
+  }
+}

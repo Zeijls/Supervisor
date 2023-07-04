@@ -1,0 +1,61 @@
+.ac-infoCard-block {
+  margin: 3rem;
+  position: relative;
+  // padding: 3rem 1rem;
+
+  &__header {
+    position: absolute;
+    right: 0;
+    top: 0;
+    flex-direction: row;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    color: $color-omega;
+    margin: 0 0 2rem;
+    @include font-weight-medium;
+  }
+
+  &__infoblock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: $color-white;
+  }
+
+  &__reportblock {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 1fr 1fr 4fr;
+    background-color: $color-white;
+    // margin: 3rem;
+  }
+
+  &__application-block {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: $color-white;
+  }
+
+  &__item {
+    display: grid;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    @include font-weight-medium;
+    color: $color-omega;
+    margin: 0.5rem 4rem 0.5rem 0;
+  }
+
+  &__paragraph {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    @include font-weight-light;
+    color: $color-omega;
+  }
+
+  &__buttonblock {
+    margin: 2rem 0 0;
+  }
+}

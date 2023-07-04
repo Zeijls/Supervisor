@@ -1,0 +1,33 @@
+.ac-logo {
+	z-index: 9999;
+	position: relative;
+	width: 15rem;
+	height: 4rem;
+	margin: auto 0;
+	top: 0;
+	left: 0;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+
+	@include prevent-highlight;
+
+	transition: width $time, height $time;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+
+		@include font-heavy;
+		@include font-size(2.8rem);
+		@include font-weight-semibold;
+		text-align: center;
+		text-transform: lowercase;
+		line-height: 1;
+		color: $color-white;
+	}
+}

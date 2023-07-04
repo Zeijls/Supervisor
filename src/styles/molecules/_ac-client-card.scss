@@ -1,0 +1,44 @@
+.ac-client-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+
+  &__detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    margin: 5rem 0 0 0;
+  }
+
+  &__card {
+    background-color: $color-white;
+    margin: 0 0 2rem 0;
+    position: relative;
+    border-radius: 5px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    @include font-weight-semibold;
+    margin: 1rem;
+    color: $color-delta;
+  }
+
+  &__icon {
+    @include font-size(3rem);
+    color: $color-delta;
+    margin-right: 1rem;
+  }
+
+  &__contract-icon.ac-icon {
+    @include font-size(2rem);
+    margin-left: 1rem;
+  }
+}

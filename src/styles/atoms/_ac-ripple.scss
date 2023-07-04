@@ -1,0 +1,196 @@
+.ac-ripple {
+  z-index: 0;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin-top: -2px;
+  margin-left: -2px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: radial-gradient(
+    circle,
+    rgba($color-white, 0.05) 50%,
+    transparent 50.01%
+  );
+  border: none;
+  border-radius: 100%;
+
+  pointer-events: none;
+  cursor: inherit;
+
+  transform: scale(1, 1);
+  opacity: 0;
+  transition: transform ($time * 3) $swift, opacity ($time * 4) $swift;
+
+  &:not(.ac-ripple--simple) {
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-image: radial-gradient(
+        circle,
+        rgba($color-white, 0.25) 50%,
+        transparent 50.01%
+      );
+      border: none;
+      border-radius: inherit;
+
+      pointer-events: none;
+      cursor: inherit;
+
+      transform: scale(1, 1);
+      opacity: 0;
+      transition: transform ($time * 2) ($time / 2) $swift,
+        opacity ($time * 5) ($time / 2) $swift;
+    }
+
+    &:after {
+      transition: transform ($time * 2) $time $swift,
+        opacity ($time * 5) $time $swift;
+    }
+  }
+
+  &--alpha {
+    background-image: radial-gradient(
+      circle,
+      rgba($color-alpha, 0.15) 50%,
+      transparent 50.01%
+    );
+
+    &:not(.ac-ripple--simple) {
+      &:before,
+      &:after {
+        background-image: radial-gradient(
+          circle,
+          rgba($color-alpha, 0.25) 50%,
+          transparent 50.01%
+        );
+      }
+    }
+  }
+
+  // &--alpha-- {
+  //   background-image: radial-gradient(
+  //     circle,
+  //     rgba($color-alpha, 0.15) 50%,
+  //     transparent 50.01%
+  //   );
+
+  //   &:not(.ac-ripple--simple) {
+  //     &:before,
+  //     &:after {
+  //       background-image: radial-gradient(
+  //         circle,
+  //         rgba($color-alpha, 0.25) 50%,
+  //         transparent 50.01%
+  //       );
+  //     }
+  //   }
+  // }
+
+  &--omega,
+  .ac-button--omega-outline {
+    background-image: radial-gradient(
+      circle,
+      rgba($color-omega, 0.15) 50%,
+      transparent 50.01%
+    );
+
+    &:not(.ac-ripple--simple) {
+      &:before,
+      &:after {
+        background-image: radial-gradient(
+          circle,
+          rgba($color-omega, 0.25) 50%,
+          transparent 50.01%
+        );
+      }
+    }
+  }
+
+  &--white,
+  .ac-button--alpha &,
+  .ac-button--omega &,
+  .ac-button--white & {
+    background-image: radial-gradient(
+      circle,
+      rgba($color-white, 0.5) 50%,
+      transparent 50.01%
+    );
+
+    &:not(.ac-ripple--simple) {
+      &:before,
+      &:after {
+        background-image: radial-gradient(
+          circle,
+          rgba($color-white, 0.5) 50%,
+          transparent 50.01%
+        );
+      }
+    }
+  }
+
+  &--light {
+    background-image: radial-gradient(
+      circle,
+      rgba($color-subtle, 0.15) 50%,
+      transparent 50.01%
+    );
+
+    &:not(.ac-ripple--simple) {
+      &:before,
+      &:after {
+        background-image: radial-gradient(
+          circle,
+          rgba($color-subtle, 0.25) 50%,
+          transparent 50.01%
+        );
+      }
+    }
+  }
+
+  &--dark {
+    background-image: radial-gradient(
+      circle,
+      rgba($color-pitch, 0.15) 50%,
+      transparent 50.01%
+    );
+
+    &:not(.ac-ripple--simple) {
+      &:before,
+      &:after {
+        background-image: radial-gradient(
+          circle,
+          rgba($color-pitch, 0.25) 50%,
+          transparent 50.01%
+        );
+      }
+    }
+  }
+
+  [has-ripple='true']:active & {
+    transform: scale(0, 0);
+    opacity: 1;
+    transition: 0s;
+
+    &:not(.ac-ripple--simple) {
+      &:before,
+      &:after {
+        transform: scale(0, 0);
+        opacity: 1;
+        transition: 0s;
+      }
+    }
+  }
+}

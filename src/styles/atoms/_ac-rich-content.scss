@@ -1,0 +1,259 @@
+.ac-rich-content {
+  & + & {
+    margin-top: 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    display: block;
+    position: relative;
+    margin: 0 0 2.5rem;
+
+    @include font-heavy;
+    font-weight: unset;
+    line-height: 1;
+    cursor: default;
+  }
+
+  h1 {
+    margin: 0 0 2.5rem 0;
+
+    @include font-heavy;
+    @include font-size(4rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    line-height: 1;
+    color: $color-pitch;
+  }
+
+  h2 {
+    margin: 0;
+
+    @include font-heavy;
+    @include font-size(2rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: $color-pitch;
+
+    &.h-text--tt-none {
+      font-weight: unset;
+      text-transform: none;
+    }
+  }
+
+  h3 {
+    margin: 0 0 1.5rem;
+
+    @include font-heavy;
+    @include font-size(1.8rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: $color-pitch;
+
+    &.h-text--tt-none {
+      font-weight: unset;
+      text-transform: none;
+    }
+  }
+
+  h4 {
+    margin: 0 0 0.5rem;
+
+    @include font-heavy;
+    @include font-size(1.6rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: $color-pitch;
+
+    &.h-text--tt-none {
+      font-weight: unset;
+    }
+  }
+
+  h5 {
+    margin: 0 0 0.8rem;
+
+    @include font-heavy;
+    @include font-size(1.4rem);
+    font-weight: unset;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: $color-pitch;
+  }
+
+  p {
+    margin: 0;
+    @include font-body();
+    @include font-size(1.6rem);
+    line-height: 1.5;
+
+    &.h-text-body-large {
+      @include font-size(1.8rem);
+    }
+
+    &.h-text--bold,
+    &.h-text--strong,
+    strong {
+      @include font-weight-bold;
+      @include font-regular();
+    }
+
+    &.h-text--semibold {
+      @include font-weight-bold;
+    }
+
+    &.h-text--regular {
+      @include font-weight-medium;
+    }
+
+    &.h-text--italic {
+      font-style: italic;
+    }
+
+    &.h-text--underlined {
+      text-decoration: underline;
+    }
+
+    &.h-flex {
+      display: flex;
+      flex-direction: row;
+
+      @include respond-max($screen-xs-max) {
+        flex-direction: column;
+
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    span.label {
+      display: inline-flex;
+      position: relative;
+      width: 11rem;
+      margin: 0 1.5rem 0 0;
+      line-height: 1.75;
+
+      @include respond-max($screen-xs-max) {
+        display: flex;
+        width: 100%;
+        margin: 0;
+
+        @include font-size(1rem);
+      }
+    }
+
+    > i[class] {
+      position: relative;
+      top: -0.2rem;
+      line-height: 1;
+      vertical-align: middle;
+    }
+  }
+
+  mark {
+    background: transparent;
+    color: $color-alpha;
+  }
+
+  strong,
+  b {
+    @include font-weight-bold;
+  }
+
+  em,
+  i {
+    &:not([class]) {
+      font-style: italic;
+    }
+  }
+
+  u {
+    text-decoration: underline;
+  }
+
+  blockquote {
+    display: block;
+    margin: 2.5rem 0;
+    padding: 0;
+  }
+
+  a:not(.ac-button) {
+    @include font-weight-bold;
+    color: $color-alpha;
+    transition: color $time;
+
+    &:link,
+    &:visited {
+      color: $color-alpha;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-alpha-dark;
+    }
+  }
+
+  ul,
+  ol {
+    margin: 1.5rem 0;
+    padding: 0 0 0 2.4rem;
+
+    li {
+      position: relative;
+      margin: 0;
+
+      @include font-body();
+      @include font-size(1.8rem);
+      line-height: 1.56;
+
+      & + li {
+        margin-top: 1.6rem;
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      list-style-type: none;
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 1.4rem;
+        height: 1.4rem;
+        top: 0.6rem;
+        left: -2.4rem;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 0.2rem $color-light;
+      }
+    }
+  }
+
+  ol {
+    li {
+      display: block;
+      list-style-type: none;
+
+      &:first-child {
+        counter-reset: item;
+      }
+
+      &:before {
+        content: counter(item) '  ';
+        counter-increment: item;
+        position: absolute;
+        width: 2.2rem;
+        height: 2.2rem;
+        left: -2.4rem;
+        text-align: left;
+      }
+    }
+  }
+}

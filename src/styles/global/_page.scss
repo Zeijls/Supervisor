@@ -1,0 +1,54 @@
+.ac-scroll-container,
+#ac-scroller {
+  -webkit-overflow-scrolling: touch;
+
+  @include respond-max($screen-xs-max) {
+    box-shadow: 0 0 10px 0 rgba($color-black, 0.16);
+  }
+}
+
+.ac-root {
+  position: relative;
+  overflow: hidden;
+  background: $color-pitch;
+  -webkit-overflow-scrolling: touch;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    background: $color-white;
+  }
+}
+
+.ac-page {
+  flex-grow: 1;
+  flex-shrink: 0;
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 2rem 0;
+
+  -webkit-overflow-scrolling: touch;
+  will-change: width, height;
+  transform: translate3d(0, 0, 0);
+
+  &--fullscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &--omega {
+    min-height: 100%;
+    background: $color-omega;
+  }
+}

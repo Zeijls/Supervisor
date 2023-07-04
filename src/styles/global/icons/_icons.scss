@@ -1,0 +1,169 @@
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?psfjop');
+  src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?psfjop#iefix')
+      format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff2?psfjop')
+      format('woff2'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?psfjop')
+      format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?psfjop')
+      format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?psfjop##{$icomoon-font-family}')
+      format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='ac-icon--'],
+[class*=' ac-icon--'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ac-icon--arrow-point-to-right {
+  &:before {
+    content: $ac-icon--arrow-point-to-right;
+  }
+}
+.ac-icon--left-arrow {
+  &:before {
+    content: $ac-icon--left-arrow;
+  }
+}
+.ac-icon--add-outline {
+  &:before {
+    content: $ac-icon--add-outline;
+  }
+}
+.ac-icon--albums-outline {
+  &:before {
+    content: $ac-icon--albums-outline;
+  }
+}
+.ac-icon--arrow-back-circle-outline {
+  &:before {
+    content: $ac-icon--arrow-back-circle-outline;
+  }
+}
+.ac-icon--arrow-back-outline {
+  &:before {
+    content: $ac-icon--arrow-back-outline;
+  }
+}
+.ac-icon--arrow-down-outline {
+  &:before {
+    content: $ac-icon--arrow-down-outline;
+  }
+}
+.ac-icon--arrow-forward-circle-outline {
+  &:before {
+    content: $ac-icon--arrow-forward-circle-outline;
+  }
+}
+.ac-icon--arrow-forward-outline {
+  &:before {
+    content: $ac-icon--arrow-forward-outline;
+  }
+}
+.ac-icon--arrow-redo-outline {
+  &:before {
+    content: $ac-icon--arrow-redo-outline;
+  }
+}
+.ac-icon--arrow-up-outline {
+  &:before {
+    content: $ac-icon--arrow-up-outline;
+  }
+}
+.ac-icon--calendar-outline {
+  &:before {
+    content: $ac-icon--calendar-outline;
+  }
+}
+.ac-icon--close-outline {
+  &:before {
+    content: $ac-icon--close-outline;
+  }
+}
+.ac-icon--code-outline {
+  &:before {
+    content: $ac-icon--code-outline;
+  }
+}
+.ac-icon--diamond-outline {
+  &:before {
+    content: $ac-icon--diamond-outline;
+  }
+}
+.ac-icon--folder-outline {
+  &:before {
+    content: $ac-icon--folder-outline;
+  }
+}
+.ac-icon--grid-outline {
+  &:before {
+    content: $ac-icon--grid-outline;
+  }
+}
+.ac-icon--layers-outline {
+  &:before {
+    content: $ac-icon--layers-outline;
+  }
+}
+.ac-icon--notepad {
+  &:before {
+    content: $ac-icon--notepad;
+  }
+}
+.ac-icon--options-outline {
+  &:before {
+    content: $ac-icon--options-outline;
+  }
+}
+.ac-icon--pdf-file {
+  &:before {
+    content: $ac-icon--pdf-file;
+  }
+}
+.ac-icon--pencil {
+  &:before {
+    content: $ac-icon--pencil;
+  }
+}
+.ac-icon--people-outline {
+  &:before {
+    content: $ac-icon--people-outline;
+  }
+}
+.ac-icon--person-outline {
+  &:before {
+    content: $ac-icon--person-outline;
+  }
+}
+.ac-icon--portfolio {
+  &:before {
+    content: $ac-icon--portfolio;
+  }
+}
+.ac-icon--search-outline {
+  &:before {
+    content: $ac-icon--search-outline;
+  }
+}
+.ac-icon--share-outline {
+  &:before {
+    content: $ac-icon--share-outline;
+  }
+}

@@ -1,0 +1,106 @@
+.ac-navigation {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 100%;
+  margin: 0 0 0 auto;
+
+  @include respond-max($screen-sm-max) {
+    display: none;
+  }
+
+  &__list {
+    list-style: none;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    list-style: none;
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    @include disable-appearance;
+    @include prevent-highlight;
+  }
+
+  &__link {
+    flex: 1 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    padding: 0 2rem;
+    overflow: hidden;
+
+    @include font-body();
+    @include font-size(1.6rem);
+    @include font-weight-semibold;
+    line-height: 1.71;
+    text-decoration: none;
+    color: $color-white;
+
+    transition: background $time, color $time;
+
+    @include prevent-highlight;
+
+    &:hover {
+      background: rgba($color-delta-dark, 0.8);
+      color: $color-white;
+    }
+
+    &--active,
+    &--active:hover {
+      background: $color-delta-dark;
+      color: $color-white;
+    }
+
+    @include respond-max($screen-md-max) {
+      padding: 0 1rem;
+    }
+
+    &__icon {
+      margin-right: 1rem;
+      @include font-size(2.4rem);
+    }
+  }
+
+  &__indicator {
+    display: block;
+    position: absolute;
+    width: auto;
+    height: 0.7rem;
+    top: auto;
+    right: 100%;
+    bottom: -0.7rem;
+    left: 0;
+    background: $color-alpha;
+    border-radius: 0;
+
+    &--static {
+      transition: none;
+    }
+
+    // will-change: right, left;
+    transform: translateZ(0);
+    // transition: right ($time * 2) $in-out, left ($time * 2) $in-out;
+
+    &--move-left {
+      transition: right ($time * 2) ($time * 0.5) $swift,
+        left ($time * 2) $swift;
+    }
+
+    &--move-right {
+      transition: left ($time * 2) ($time * 0.5) $swift,
+        right ($time * 2) $swift;
+    }
+  }
+}

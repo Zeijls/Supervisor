@@ -1,0 +1,12 @@
+.ac-link-button {
+  &__link {
+    text-decoration: underline;
+    padding: 1rem 1rem;
+    color: $color-alpha;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    background: none;
+  }
+}

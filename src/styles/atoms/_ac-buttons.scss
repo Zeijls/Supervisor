@@ -1,0 +1,89 @@
+.ac-buttons {
+  &__primair {
+    background-color: $color-alpha;
+    padding: 1rem;
+    color: $color-white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    width: 15rem;
+    text-decoration: none;
+    text-align: center;
+    margin: 2rem;
+  }
+
+  &__secundair {
+    padding: 1rem 3rem;
+    color: $color-alpha;
+    font-size: 1.5rem;
+    border: 1px solid $color-alpha;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  &__update {
+    color: $color-alpha;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    width: 10rem;
+    text-decoration: none;
+    text-align: center;
+    background-color: $color-white;
+  }
+
+  &__delete {
+    background-color: $color-white;
+    padding: 1rem;
+    color: $color-alpha;
+    font-size: 1.5rem;
+    border: 1px solid $color-alpha;
+    border-radius: 5px;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    width: 10rem;
+    text-align: center;
+  }
+
+  &__link {
+    text-decoration: underline;
+    padding: 1rem 1rem;
+    color: $color-alpha;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    background: none;
+  }
+
+  &__addContact {
+    background-color: $color-white;
+    text-decoration: underline;
+    padding: 1rem 3rem;
+    color: $color-alpha;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+  }
+
+  &__cancel {
+    color: $color-error;
+    border: none;
+    text-decoration: underline;
+    font-size: 1.5rem;
+    text-align: center;
+    background: none;
+    padding: 1rem 3rem;
+  }
+
+  &__add {
+    color: $color-alpha;
+    border: none;
+    text-decoration: underline;
+    font-size: 1.5rem;
+    background: none;
+    text-align: left;
+    width: 30%;
+  }
+}

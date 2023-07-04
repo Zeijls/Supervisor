@@ -1,0 +1,64 @@
+.ac-section {
+	z-index: +3;
+	display: flex;
+	position: relative;
+	width: 100%;
+	padding: 7rem 0;
+
+	@include respond-max($screen-sm-max) {
+		padding: 5rem 0;
+	}
+
+	&--offset-top {
+		margin-top: -14rem;
+	}
+
+	&--fullheight {
+		height: 75vh;
+	}
+
+	&--dense {
+		padding: 2rem 0;
+	}
+
+	&--white,
+	&--default {
+		background: $color-white;
+	}
+
+	&--transparent {
+	}
+
+	&--light {
+		background: $color-light;
+	}
+
+	&--subtle {
+		background: $color-subtle;
+	}
+
+	&--medium {
+		background: $color-medium;
+		color: $color-white;
+	}
+
+	&--dark {
+		background: $color-dark;
+		color: $color-white;
+	}
+
+	&--pitch {
+		background: $color-pitch;
+		color: $color-white;
+	}
+
+	&--alpha {
+		background: $color-alpha;
+		color: $color-white;
+	}
+
+	&--omega {
+		background: $color-omega;
+		color: $color-white;
+	}
+}

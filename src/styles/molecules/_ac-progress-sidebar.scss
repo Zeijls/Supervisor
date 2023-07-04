@@ -1,0 +1,94 @@
+.ac-progress-sidebar {
+  height: 70vh;
+  background-color: $color-alpha;
+  border-radius: 5px;
+  margin: auto;
+
+  &__button {
+    width: 100%;
+    padding: 0;
+    background-color: $color-alpha;
+    border: none;
+  }
+
+  &__button:first-of-type > div > div > div {
+    height: 5rem;
+    width: 0.1rem;
+    color: $color-alpha;
+    background-color: $color-alpha;
+    margin: auto;
+  }
+
+  &__button:focus {
+    border: none;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    opacity: 50%;
+    margin-left: 2rem;
+    position: relative;
+    width: 80%;
+    margin: auto;
+
+    &--active {
+      opacity: 100%;
+    }
+
+    &--active > div > div {
+      opacity: 50%;
+    }
+  }
+
+  &__number {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__border {
+    margin-right: 2rem;
+  }
+
+  &__title {
+    color: $color-white;
+    border: 3px solid $color-white;
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 4rem;
+    margin: 0.5rem;
+  }
+
+  // &__text:first-of-type {
+  //   margin-top: 0;
+  // }
+
+  &__text {
+    text-align: left;
+    color: $color-white;
+    @include font-sub-heading;
+    font-size: 1.5rem;
+    margin-top: 6rem;
+  }
+
+  &__paragraph {
+    @include font-weight-medium;
+    @include font-size(1.2rem);
+    @include font-italic;
+    margin-bottom: 0.5rem;
+  }
+
+  &__subtitle {
+    @include font-weight-medium;
+    @include font-size(1.8rem);
+    margin-top: 0;
+  }
+
+  &__line {
+    height: 5rem;
+    width: 0.1rem;
+    color: white;
+    background-color: $color-white;
+    margin: auto;
+  }
+}

@@ -1,0 +1,13 @@
+.ac-dashboard {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    color: $color-black;
+    @include font-weight-medium;
+    font-size: 1.8rem;
+    margin-top: 0;
+  }
+}

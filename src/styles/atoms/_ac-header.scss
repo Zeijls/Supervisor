@@ -1,0 +1,23 @@
+.ac-header {
+  z-index: 100000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  width: 100vw;
+  height: 7rem;
+  padding: 0 2.4rem;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  background: $color-dark;
+  box-sizing: border-box;
+
+  transform: translateZ(0);
+
+  & + *:not(.react-reveal) {
+    margin-top: 7rem;
+  }
+}
